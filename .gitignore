@@ -1,0 +1,14 @@
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+.conda/
+data/
+*.mat
+*.zip
+*.7z
+*.rar
+*.fif
+*.npy
+*.npz
+*.pkl
