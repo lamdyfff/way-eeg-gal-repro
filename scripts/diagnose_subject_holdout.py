@@ -112,6 +112,64 @@ for test_subject in (3, 4):
     pred = (test @ weights + target_mean).reshape(y_test.shape)
     baseline = np.broadcast_to(y_train.mean(axis=0), y_test.shape)
 
+    # 岭回归的预测等于平均轨迹基线 + 63 个标准化 EEG 特征的线性修正。
+    # 按通道把三个时间窗的权重合在一起，检查偏移特征是否真正影响输出。
+    target_axis = 1 if test_subject == 3 else 2  # P3 查 Y；P4 查 Z
+    target_name = ("X", "Y", "Z")[target_axis]
+    axis_weights = weights.reshape(len(PAPER_CHANNELS) * 3, 500, 3)[:, :, target_axis]
+    full_error = np.abs(pred[:, :, target_axis] - y_test[:, :, target_axis]).mean()
+    channel_impact = []
+    neutral_mae_change = []
+    for channel_index, channel in enumerate(PAPER_CHANNELS):
+        indices = np.array([
+            window * len(PAPER_CHANNELS) + channel_index for window in range(3)
+        ])
+        # 该通道三个特征对“平均预测轨迹相对基线的修正”的贡献大小。
+        mean_correction = test[:, indices].mean(axis=0) @ axis_weights[indices]
+        channel_impact.append(np.abs(mean_correction).mean())
+
+        # 敏感性测试：模型权重保持不变，只把该通道三个测试特征替换为
+        # 训练者的中位数。它不是删通道重训，也不是可直接部署的改进。
+        replacement = (train_median[indices] - test[:, indices]) @ axis_weights[indices]
+        neutral_prediction = pred[:, :, target_axis] + replacement
+        neutral_error = np.abs(neutral_prediction - y_test[:, :, target_axis]).mean()
+        neutral_mae_change.append(neutral_error - full_error)
+
+    channel_impact = np.asarray(channel_impact)
+    neutral_mae_change = np.asarray(neutral_mae_change)
+    if not np.allclose(
+        test.mean(axis=0) @ axis_weights,
+        (pred[:, :, target_axis] - baseline[:, :, target_axis]).mean(axis=0),
+    ):
+        raise AssertionError("通道贡献与模型输出不一致")
+    print(f"\nP{test_subject} {target_name}：完整模型MAE={full_error:.3f}")
+    print("通道：平均轨迹修正贡献绝对值；中性替换后的MAE变化（正数=替换更差）")
+    for channel_index in np.argsort(channel_impact)[-8:][::-1]:
+        print(
+            f"  {PAPER_CHANNELS[channel_index]}: "
+            f"贡献={channel_impact[channel_index]:.3f}，"
+            f"替换变化={neutral_mae_change[channel_index]:+.3f}"
+        )
+
+    fig, axes_channel = plt.subplots(2, 1, figsize=(13, 7), sharex=True)
+    positions = np.arange(len(PAPER_CHANNELS))
+    axes_channel[0].bar(positions, channel_impact)
+    axes_channel[0].set_ylabel("平均预测修正的绝对贡献")
+    axes_channel[1].bar(
+        positions, neutral_mae_change,
+        color=np.where(neutral_mae_change >= 0, "tab:green", "tab:orange"),
+    )
+    axes_channel[1].axhline(0, color="black", linewidth=0.8)
+    axes_channel[1].set_ylabel("替换后MAE - 原MAE")
+    axes_channel[1].set_xticks(positions, PAPER_CHANNELS, rotation=45)
+    axes_channel[1].set_xlabel("EEG通道；绿色表示中性替换使MAE变差")
+    fig.suptitle(f"P{test_subject} {target_name}：EEG通道贡献与中性替换测试")
+    fig.tight_layout()
+    channel_output = OUTPUT_DIR / f"diagnostics_P{test_subject}_{target_name}_channel_impact.png"
+    fig.savefig(channel_output, dpi=160)
+    plt.close(fig)
+    print(f"已保存：{channel_output.resolve()}")
+
     # 找出“EEG 相对基线退步最多”的两次抓握，方便优先排查。
     base_y_error = np.abs(baseline[:, :, 1] - y_test[:, :, 1]).mean(axis=1)
     eeg_y_error = np.abs(pred[:, :, 1] - y_test[:, :, 1]).mean(axis=1)

@@ -75,6 +75,107 @@ python scripts/subject_holdout_baseline.py --data-root D:\biosignal-data\WAY-EEG
 python scripts/diagnose_subject_holdout.py --data-root D:\biosignal-data\WAY-EEG-GAL
 ```
 
+### 探索性通道消融对照（2026-09-27）
+
+使用 [`scripts/channel_ablation.py`](scripts/channel_ablation.py) 在同一四轮留一受试者划分下，比较全部 21 通道、去 F4、去 FC5、同时去 F4/FC5。每个配置都仅用训练受试者重新拟合特征标准化和岭回归；试次、平均重参考、滤波及目标轨迹保持一致。这里的“去通道”只去掉其三个输入特征，**没有**在重新参考之前删除原始 EEG 通道。
+
+| 测试者 | 基线整体 MAE | 全部 21 通道 EEG | 去 F4 | 去 FC5 | 去 F4/FC5 |
+|---|---:|---:|---:|---:|---:|
+| P1 | 2.226 | **1.712** | 1.804 | 1.782 | 1.890 |
+| P2 | 2.843 | 2.767 | 2.816 | **2.759** | 2.812 |
+| P3 | 1.250 | 1.929 | 1.829 | 1.877 | **1.770** |
+| P4 | 1.340 | **1.400** | 1.413 | 1.432 | 1.428 |
+| 四人加权平均 | 1.915 | **1.952** | 1.966 | 1.963 | 1.975 |
+
+P3 的 Y MAE 从完整模型的 `3.570` 降到同时去 F4/FC5 后的 `3.002`，但仍高于其平均轨迹基线的 `1.751`。移除通道在 P1、P4 造成损失，四人整体也没有改善，因此当前结果**不支持**把 F4 或 FC5 从默认输入中删除。F4/FC5 是看过 P3 测试结果后提出的候选，这项对照只能作探索性诊断，不能当作无偏的模型选择或最终泛化成绩。
+
+```powershell
+python scripts/channel_ablation.py --data-root D:\biosignal-data\WAY-EEG-GAL
+```
+
+### 轨迹 2 Hz 低通的单变量对照（2026-09-27）
+
+使用 [`scripts/trajectory_lowpass_experiment.py`](scripts/trajectory_lowpass_experiment.py)。保留全部 21 通道、EEG 特征、固定岭回归参数及四轮留一受试者划分，仅将**训练目标**改为对完整 WS 运动学窗口做 2 Hz FIR 低通后截取的 1 秒相对位移。两方案都在**同一未经低通的测试轨迹**上计分，因而表中数值可直接比较；每个方案的平均轨迹基线也由其各自训练目标计算。
+
+| 测试者 | 原始目标：基线/EEG 整体 MAE | 仅训练目标低通：基线/EEG 整体 MAE | 关注轴原始→低通 EEG MAE |
+|---|---:|---:|---:|
+| P1 | 2.226 / 1.712 | 2.279 / 1.716 | — |
+| P2 | 2.843 / 2.767 | 2.653 / 2.589 | — |
+| P3 | 1.250 / 1.929 | 1.357 / 2.031 | Y：3.570 → 3.743 |
+| P4 | 1.340 / 1.400 | 1.484 / 1.544 | Z：1.243 → 1.565 |
+
+这一步**没有解决** P3 Y 与 P4 Z 的退步；不能据此认定轨迹低通无用，因为这是只改变训练目标的敏感性实验，并非论文完整预处理。论文说明运动学采用 2 Hz FIR 低通，之后还进行了 min-max 归一化和 100 Hz 降采样；本实验暂不改变后两项。这里用 501 taps、Hamming 窗及镜像边界，论文页面未提供这些精确实现参数，故不能把该实现称为与论文逐点一致。参见[论文原文](https://arxiv.org/html/2209.01932v2)。
+
+```powershell
+python -X utf8 scripts/trajectory_lowpass_experiment.py --data-root D:\biosignal-data\WAY-EEG-GAL
+```
+
+### 运动开始与手腕坐标的只读核查（2026-09-27）
+
+[`scripts/audit_kinematics_alignment.py`](scripts/audit_kinematics_alignment.py) 对 P1–P4 的 1176 次抓握逐一核查：`Lift` 与 WS 窗口一一对应；`tHandStart` 可在 500 Hz 的 WS 时间轴上定位，所选采样点与事件时间相差 0 ms；运动前 150 点及运动后 500 点均未越界；HS 连续记录与 WS 窗口中抽查的 C3 和手腕三列样本逐点相同。四人九段的手腕列名和顺序均为 `Px4 / Py4 / Pz4`。
+
+| 被试 | 1 秒末平均相对位移 X/Y/Z | 终点处正方向试次数 X/Y/Z |
+|---|---:|---:|
+| P1 | 12.775 / −22.973 / 3.178 | 294 / 0 / 294 |
+| P2 | 11.318 / −19.334 / 2.572 | 285 / 7 / 279 |
+| P3 | 11.016 / −23.048 / 5.324 | 294 / 0 / 294 |
+| P4 | 10.776 / −20.489 / 4.622 | 293 / 0 / 293 |
+
+据此没有发现 P3/P4 的**整体**时间错位、列顺序互换或运动方向翻转。上述为程序内部一致性检查，不能证明 `tHandStart` 的生理定义或所有时点均无误；仅凭 `.mat` 列名和数值亦不能确认坐标的厘米/毫米单位。数据集原始说明指出 P4 是腕部三维位置传感器，未在本次核查中找到明确的数值单位约定，故 MAE 暂按“原始位置数值单位”报告。参见[原始数据集说明](https://www.nature.com/articles/sdata201447)。
+
+```powershell
+python -X utf8 scripts/audit_kinematics_alignment.py --data-root D:\biosignal-data\WAY-EEG-GAL
+```
+
+### P3 Y、P4 Z 按记录段诊断（2026-09-27）
+
+使用 [`scripts/diagnose_runwise_errors.py`](scripts/diagnose_runwise_errors.py) 在原四轮留一受试者配置下重新计算预测，不改通道、标准化、岭回归参数或测试目标。下表为每段单轴 `EEG MAE - 平均轨迹基线 MAE`；正数表示 EEG 更差。
+
+| 段 | P3 Y | P4 Z |
+|---|---:|---:|
+| S1 | +0.582 | +0.155 |
+| S2 | +1.651 | +0.170 |
+| S3 | +1.884 | +0.141 |
+| S4 | +1.820 | +0.237 |
+| S5 | +2.203 | +0.221 |
+| S6 | +2.135 | +0.293 |
+| S7 | +2.140 | +0.305 |
+| S8 | +1.910 | +0.218 |
+| S9 | +2.021 | +0.039 |
+
+九段全部为正，因此 P3 Y、P4 Z 的退步**不只由两三个最差试次或单独一段造成**。P3 Y 的整体差值约 +1.820，S5–S7 比较严重；P4 Z 整体差值约 +0.197，S6–S7 相对较大。P3 Y 的终点均值从 S1 的 −20.988 到 S9 的 −25.472，P4 Z 从 S1 的 3.406 到 S8 的 6.089，说明各段目标分布也有变化，但不能仅凭这个相关现象断定它是模型退步的原因。对应图见 [`figures/diagnostics/diagnostics_P3_Y_runwise.png`](figures/diagnostics/diagnostics_P3_Y_runwise.png) 和 [`figures/diagnostics/diagnostics_P4_Z_runwise.png`](figures/diagnostics/diagnostics_P4_Z_runwise.png)。
+
+进一步把 EEG 预测拆成“训练者平均轨迹＋EEG 修正”，并与测试者相对该平均轨迹的真实偏差比较：
+
+| 留出轴 | 训练者平均轨迹的 1 秒终点 | 测试者真实终点均值 | 终点所需修正 | EEG 实际平均修正 | 去掉每段平均轨迹后的逐次变化相关 |
+|---|---:|---:|---:|---:|---:|
+| P3 Y | −20.932 | −23.048 | **−2.116** | **+1.541** | −0.087 |
+| P4 Z | +3.691 | +4.622 | **+0.931** | **−0.667** | +0.034 |
+
+P3 Y 与 P4 Z 的**平均 EEG 修正都朝真实所需修正的相反方向**，这解释了为什么模型在多数段、试次输给平均轨迹。段内去均值后的相关接近零，表示当前模型的该轴修正没有明显跟上逐次差异；这些是描述性诊断，不是显著性检验，也不能单凭它断定 EEG 完全不含信息。图见 [`figures/diagnostics/diagnostics_P3_Y_correction.png`](figures/diagnostics/diagnostics_P3_Y_correction.png) 和 [`figures/diagnostics/diagnostics_P4_Z_correction.png`](figures/diagnostics/diagnostics_P4_Z_correction.png)。不要用测试者的真实平均偏差来拟合校正并报告同一测试者的成绩，那会造成测试信息泄漏。
+
+```powershell
+python -X utf8 scripts/diagnose_runwise_errors.py --data-root D:\biosignal-data\WAY-EEG-GAL
+```
+
+### 训练者内部验证选择 EEG 修正强度（探索性，2026-09-27）
+
+[`scripts/nested_correction_shrinkage.py`](scripts/nested_correction_shrinkage.py) 固定原有特征、21 通道与岭回归，仅把输出写作 `平均轨迹 + strength × (EEG预测 − 平均轨迹)`。每轮外层留一被试时，候选强度 `0、0.25、0.5、0.75、1` **只由另外三人的内层留一人验证**选择，外层测试目标不参与选择。
+
+| 外层测试者 | 内层所选强度 | 平均轨迹基线整体 MAE | 原 EEG 整体 MAE | 内层选择后整体 MAE |
+|---|---:|---:|---:|---:|
+| P1 | 0 | 2.226 | 1.712 | 2.226 |
+| P2 | 0.5 | 2.843 | 2.767 | 2.793 |
+| P3 | 1 | 1.250 | 1.929 | 1.929 |
+| P4 | 0.25 | 1.340 | 1.400 | 1.320 |
+| 四轮平均 | — | 1.915 | 1.952 | 2.067 |
+
+内层选择在 P4 略有帮助，却在 P1 放弃了有效 EEG 修正，并且**没有预警 P3 的严重退步**：P3 外层训练者为 P1/P2/P4，其内层验证偏好 `strength=1`。因此目前三位训练者的内层结果不足以形成稳健的跨被试修正规则；不能根据外层 P3 的真实标签直接把其强度改为 0。四位被试已被反复用于诊断，这组数字仍属探索性，最终泛化结论需要预先固定流程并用未参与选择的新被试验证。
+
+```powershell
+python -X utf8 scripts/nested_correction_shrinkage.py --data-root D:\biosignal-data\WAY-EEG-GAL
+```
+
 ## 解释范围
 
 - 上方 P1 九段表只反映同一受试者的跨记录泛化；后续 P1–P4 表是探索性跨受试者基线。两者均不是论文中 MLP 或 CNN-LSTM 的完整复现。
@@ -84,7 +185,7 @@ python scripts/diagnose_subject_holdout.py --data-root D:\biosignal-data\WAY-EEG
 
 ## 下一步
 
-1. 在 P3、P4 留出轮次中，检查偏移较大的 EEG 特征是否对 Y/Z 预测修正有较大影响；仅凭特征分布图不删除通道。
+1. 保留全部 21 通道作为当前默认配置；通道贡献、中性替换和消融结果均已记录，不基于 P3/P4 测试表现继续删通道调参。
 2. 保持完整受试者留出和训练集限定的标准化，检查目标轨迹分布、时间对齐和每段结果，定位 P3 Y、P4 Z 退步的来源。
-3. 固定当前基线作为参照，再逐项加入论文的轨迹 2 Hz 低通、100 Hz 重采样、频带和时滞窗口；每次只改变一项。
+3. 轨迹 2 Hz 低通、时间/坐标核查、按段误差、修正方向和训练者内部修正强度对照均已完成；物理单位仍须以原始采集说明确认。现有四人不足以稳定选出能处理 P3 的修正规则；下一步先固定分析流程、扩充未参与当前诊断的被试，再评估泛化。100 Hz 降采样如要研究，应另作单变量实验，不与修正强度或归一化同时改动。
 4. 在相同留一受试者划分上评估后续模型，并同时报告 MAE、PCC 与平均轨迹基线，避免只凭高 PCC 判断解码有效。
