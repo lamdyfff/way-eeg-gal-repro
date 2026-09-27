@@ -1,7 +1,7 @@
 """检查 P3/P4 留一受试者预测、逐时间点误差及 EEG 特征偏移。
 
 运行：python scripts/diagnose_subject_holdout.py --data-root 数据目录
-图像写到运行命令时所在的目录；不会修改原始数据或基线训练脚本。
+图像写到仓库的 figures/diagnostics/；不会修改原始数据或基线训练脚本。
 """
 
 import argparse
@@ -29,6 +29,8 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--data-root", type=Path, required=True, help="含 P1–P4 子目录的数据目录")
 args = parser.parse_args()
 DATA_ROOT = args.data_root
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "figures" / "diagnostics"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 data = {}
 
 # 读取四位被试；每人的轨迹形状应为 (294, 500, 3)。
@@ -96,7 +98,7 @@ for test_subject in (3, 4):
     axes_shift[1].legend()
     fig.suptitle(f"P{test_subject} EEG输入特征偏移检查")
     fig.tight_layout()
-    shift_output = Path(f"diagnostics_P{test_subject}_feature_shift.png")
+    shift_output = OUTPUT_DIR / f"diagnostics_P{test_subject}_feature_shift.png"
     fig.savefig(shift_output, dpi=160)
     plt.close(fig)
     print(f"已保存：{shift_output.resolve()}")
@@ -135,7 +137,7 @@ for test_subject in (3, 4):
     axes[-1].set_xlabel("运动开始后的时间（秒）")
     fig.suptitle(f"P{test_subject} 第{i + 1}次抓握")
     fig.tight_layout()
-    output = Path(f"diagnostics_P{test_subject}_worstY.png")
+    output = OUTPUT_DIR / f"diagnostics_P{test_subject}_worstY.png"
     fig.savefig(output, dpi=160)
     plt.close(fig)
     print(f"已保存：{output.resolve()}")
@@ -177,7 +179,7 @@ for test_subject in (3, 4):
     axes[-1, 1].set_xlabel("运动开始后的时间（秒）")
     fig.suptitle(f"P{test_subject} 全部 {len(y_test)} 次抓握")
     fig.tight_layout()
-    output = Path(f"diagnostics_P{test_subject}_all_trials.png")
+    output = OUTPUT_DIR / f"diagnostics_P{test_subject}_all_trials.png"
     fig.savefig(output, dpi=160)
     plt.close(fig)
     print(f"已保存：{output.resolve()}")

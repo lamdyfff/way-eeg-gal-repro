@@ -62,7 +62,7 @@ python scripts/subject_holdout_baseline.py --data-root D:\biosignal-data\WAY-EEG
 
 模型仅在 P1、P2 的整体 MAE 优于平均轨迹基线；P3 尤其在 Y 方向退步，P4 的 Z 方向退步。不能将该模型概括为跨被试稳定优于基线。
 
-[`scripts/diagnose_subject_holdout.py`](scripts/diagnose_subject_holdout.py) 对 P3、P4 复现同一固定岭回归配置，另输出最差 Y 试次、全部试次逐时间点 MAE，以及训练者与测试者的 63 维 EEG 特征对比。六张诊断图在仓库根目录，以 `diagnostics_P3_`、`diagnostics_P4_` 开头。图中的手腕坐标仍只称“位移”，物理单位未核实。
+[`scripts/diagnose_subject_holdout.py`](scripts/diagnose_subject_holdout.py) 对 P3、P4 复现同一固定岭回归配置，另输出最差 Y 试次、全部试次逐时间点 MAE，以及训练者与测试者的 63 维 EEG 特征对比。六张诊断图集中存放在 [`figures/diagnostics/`](figures/diagnostics/)；脚本复跑后也会写到该目录。图中的手腕坐标仍只称“位移”，物理单位未核实。
 
 - P3 的 Y 终点位移均值为 -23.048，与 P1 的 -22.973 接近；没有证据表明 P3 的 Y 坐标方向整体反转。P3 Y 仅 20/294 次由 EEG 获益；全部试次的平均轨迹显示 EEG 预测的 Y 位移幅度偏小，后段误差持续较大。
 - P4 的 Z 仅 59/294 次由 EEG 获益；平均预测未跟上真实轨迹的早期峰值，后段误差也较大。
