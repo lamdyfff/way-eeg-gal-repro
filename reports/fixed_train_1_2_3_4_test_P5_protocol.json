@@ -1,0 +1,459 @@
+{
+  "recorded_before_test_utc": "2026-09-30T06:59:08.752075+00:00",
+  "configuration": {
+    "train_subjects": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "test_subject": 5,
+    "runs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "fs": 500,
+    "input_points": 150,
+    "target_points": 500,
+    "channels": [
+      "F3",
+      "Fz",
+      "F4",
+      "FC5",
+      "FC1",
+      "FC2",
+      "FC6",
+      "C3",
+      "Cz",
+      "C4",
+      "CP5",
+      "CP1",
+      "CP2",
+      "CP6",
+      "P7",
+      "P3",
+      "Pz",
+      "P4",
+      "O1",
+      "Oz",
+      "O2"
+    ],
+    "eeg_processing": "21-channel average reference; continuous causal fourth-order Butterworth 0.1-40Hz; no ICA",
+    "features": "63 log std features from three consecutive 50-point windows",
+    "ridge_alpha": 100.0,
+    "standardization": "training subjects only",
+    "target_processing": "raw wrist XYZ; subtract own onset position; no target filter/resampling",
+    "primary_metric": "MAE over all trials, 500 time samples and XYZ",
+    "secondary_metrics": [
+      "XYZ MAE",
+      "trial wins vs training mean trajectory",
+      "runwise MAE"
+    ],
+    "plots": "mean trajectories and first trial; no best/worst trial selection",
+    "source_sha256": {
+      "fixed_subject_test.py": "8f557aa23952cfc7d5d1e379db3f0892cf9ed88afa5296ae2d9f9535ccbaf111",
+      "subject_holdout_baseline.py": "7575a96d92d07480176ba1a20ce3cf02af347fb116382cf1f48f9ce6e7c47569",
+      "audit_kinematics_alignment.py": "d6b18c06a431c892bb5c89037201073debf39ada7079b1ef5cb04a69056a04a7"
+    },
+    "file_size_inventory": {
+      "P1": [
+        {
+          "name": "P1_AllLifts.mat",
+          "bytes": 40220
+        },
+        {
+          "name": "HS_P1_S1.mat",
+          "bytes": 36975335
+        },
+        {
+          "name": "WS_P1_S1.mat",
+          "bytes": 50960640
+        },
+        {
+          "name": "HS_P1_S2.mat",
+          "bytes": 69596329
+        },
+        {
+          "name": "WS_P1_S2.mat",
+          "bytes": 50074253
+        },
+        {
+          "name": "HS_P1_S3.mat",
+          "bytes": 55155450
+        },
+        {
+          "name": "WS_P1_S3.mat",
+          "bytes": 40489513
+        },
+        {
+          "name": "HS_P1_S4.mat",
+          "bytes": 35802164
+        },
+        {
+          "name": "WS_P1_S4.mat",
+          "bytes": 49614257
+        },
+        {
+          "name": "HS_P1_S5.mat",
+          "bytes": 52769956
+        },
+        {
+          "name": "WS_P1_S5.mat",
+          "bytes": 39438571
+        },
+        {
+          "name": "HS_P1_S6.mat",
+          "bytes": 64427395
+        },
+        {
+          "name": "WS_P1_S6.mat",
+          "bytes": 49424803
+        },
+        {
+          "name": "HS_P1_S7.mat",
+          "bytes": 36413728
+        },
+        {
+          "name": "WS_P1_S7.mat",
+          "bytes": 49955122
+        },
+        {
+          "name": "HS_P1_S8.mat",
+          "bytes": 35223276
+        },
+        {
+          "name": "WS_P1_S8.mat",
+          "bytes": 48872353
+        },
+        {
+          "name": "HS_P1_S9.mat",
+          "bytes": 35112104
+        },
+        {
+          "name": "WS_P1_S9.mat",
+          "bytes": 49152724
+        }
+      ],
+      "P2": [
+        {
+          "name": "P2_AllLifts.mat",
+          "bytes": 42645
+        },
+        {
+          "name": "HS_P2_S1.mat",
+          "bytes": 70454110
+        },
+        {
+          "name": "WS_P2_S1.mat",
+          "bytes": 50513325
+        },
+        {
+          "name": "HS_P2_S2.mat",
+          "bytes": 80951932
+        },
+        {
+          "name": "WS_P2_S2.mat",
+          "bytes": 62110744
+        },
+        {
+          "name": "HS_P2_S3.mat",
+          "bytes": 42875069
+        },
+        {
+          "name": "WS_P2_S3.mat",
+          "bytes": 55737414
+        },
+        {
+          "name": "HS_P2_S4.mat",
+          "bytes": 67959007
+        },
+        {
+          "name": "WS_P2_S4.mat",
+          "bytes": 53686335
+        },
+        {
+          "name": "HS_P2_S5.mat",
+          "bytes": 42416861
+        },
+        {
+          "name": "WS_P2_S5.mat",
+          "bytes": 54533514
+        },
+        {
+          "name": "HS_P2_S6.mat",
+          "bytes": 50753009
+        },
+        {
+          "name": "WS_P2_S6.mat",
+          "bytes": 43942053
+        },
+        {
+          "name": "HS_P2_S7.mat",
+          "bytes": 41732784
+        },
+        {
+          "name": "WS_P2_S7.mat",
+          "bytes": 53622524
+        },
+        {
+          "name": "HS_P2_S8.mat",
+          "bytes": 41791592
+        },
+        {
+          "name": "WS_P2_S8.mat",
+          "bytes": 54173894
+        },
+        {
+          "name": "HS_P2_S9.mat",
+          "bytes": 41018843
+        },
+        {
+          "name": "WS_P2_S9.mat",
+          "bytes": 53923794
+        }
+      ],
+      "P3": [
+        {
+          "name": "P3_AllLifts.mat",
+          "bytes": 40083
+        },
+        {
+          "name": "HS_P3_S1.mat",
+          "bytes": 32217255
+        },
+        {
+          "name": "WS_P3_S1.mat",
+          "bytes": 44926850
+        },
+        {
+          "name": "HS_P3_S2.mat",
+          "bytes": 46012891
+        },
+        {
+          "name": "WS_P3_S2.mat",
+          "bytes": 37402100
+        },
+        {
+          "name": "HS_P3_S3.mat",
+          "bytes": 55507419
+        },
+        {
+          "name": "WS_P3_S3.mat",
+          "bytes": 45592174
+        },
+        {
+          "name": "HS_P3_S4.mat",
+          "bytes": 46809915
+        },
+        {
+          "name": "WS_P3_S4.mat",
+          "bytes": 37239229
+        },
+        {
+          "name": "HS_P3_S5.mat",
+          "bytes": 59619007
+        },
+        {
+          "name": "WS_P3_S5.mat",
+          "bytes": 45787468
+        },
+        {
+          "name": "HS_P3_S6.mat",
+          "bytes": 31220566
+        },
+        {
+          "name": "WS_P3_S6.mat",
+          "bytes": 43954673
+        },
+        {
+          "name": "HS_P3_S7.mat",
+          "bytes": 31168194
+        },
+        {
+          "name": "WS_P3_S7.mat",
+          "bytes": 44036221
+        },
+        {
+          "name": "HS_P3_S8.mat",
+          "bytes": 31533026
+        },
+        {
+          "name": "WS_P3_S8.mat",
+          "bytes": 44971220
+        },
+        {
+          "name": "HS_P3_S9.mat",
+          "bytes": 30981366
+        },
+        {
+          "name": "WS_P3_S9.mat",
+          "bytes": 45763941
+        }
+      ],
+      "P4": [
+        {
+          "name": "P4_AllLifts.mat",
+          "bytes": 41002
+        },
+        {
+          "name": "HS_P4_S1.mat",
+          "bytes": 61403334
+        },
+        {
+          "name": "WS_P4_S1.mat",
+          "bytes": 49560214
+        },
+        {
+          "name": "HS_P4_S2.mat",
+          "bytes": 51711120
+        },
+        {
+          "name": "WS_P4_S2.mat",
+          "bytes": 40546357
+        },
+        {
+          "name": "HS_P4_S3.mat",
+          "bytes": 36977040
+        },
+        {
+          "name": "WS_P4_S3.mat",
+          "bytes": 48765518
+        },
+        {
+          "name": "HS_P4_S4.mat",
+          "bytes": 50249905
+        },
+        {
+          "name": "WS_P4_S4.mat",
+          "bytes": 39280581
+        },
+        {
+          "name": "HS_P4_S5.mat",
+          "bytes": 34788622
+        },
+        {
+          "name": "WS_P4_S5.mat",
+          "bytes": 47722675
+        },
+        {
+          "name": "HS_P4_S6.mat",
+          "bytes": 60280806
+        },
+        {
+          "name": "WS_P4_S6.mat",
+          "bytes": 48362654
+        },
+        {
+          "name": "HS_P4_S7.mat",
+          "bytes": 34137945
+        },
+        {
+          "name": "WS_P4_S7.mat",
+          "bytes": 47048282
+        },
+        {
+          "name": "HS_P4_S8.mat",
+          "bytes": 34308151
+        },
+        {
+          "name": "WS_P4_S8.mat",
+          "bytes": 46948948
+        },
+        {
+          "name": "HS_P4_S9.mat",
+          "bytes": 33944255
+        },
+        {
+          "name": "WS_P4_S9.mat",
+          "bytes": 46519015
+        }
+      ],
+      "P5": [
+        {
+          "name": "P5_AllLifts.mat",
+          "bytes": 42206
+        },
+        {
+          "name": "HS_P5_S1.mat",
+          "bytes": 55496972
+        },
+        {
+          "name": "WS_P5_S1.mat",
+          "bytes": 42951665
+        },
+        {
+          "name": "HS_P5_S2.mat",
+          "bytes": 37447225
+        },
+        {
+          "name": "WS_P5_S2.mat",
+          "bytes": 50272895
+        },
+        {
+          "name": "HS_P5_S3.mat",
+          "bytes": 63322104
+        },
+        {
+          "name": "WS_P5_S3.mat",
+          "bytes": 51212865
+        },
+        {
+          "name": "HS_P5_S4.mat",
+          "bytes": 37460140
+        },
+        {
+          "name": "WS_P5_S4.mat",
+          "bytes": 50768008
+        },
+        {
+          "name": "HS_P5_S5.mat",
+          "bytes": 64331758
+        },
+        {
+          "name": "WS_P5_S5.mat",
+          "bytes": 50572586
+        },
+        {
+          "name": "HS_P5_S6.mat",
+          "bytes": 54426179
+        },
+        {
+          "name": "WS_P5_S6.mat",
+          "bytes": 41084865
+        },
+        {
+          "name": "HS_P5_S7.mat",
+          "bytes": 36934501
+        },
+        {
+          "name": "WS_P5_S7.mat",
+          "bytes": 50356779
+        },
+        {
+          "name": "HS_P5_S8.mat",
+          "bytes": 34993525
+        },
+        {
+          "name": "WS_P5_S8.mat",
+          "bytes": 48247325
+        },
+        {
+          "name": "HS_P5_S9.mat",
+          "bytes": 35651565
+        },
+        {
+          "name": "WS_P5_S9.mat",
+          "bytes": 48834426
+        }
+      ]
+    },
+    "numpy_version": "2.4.6"
+  }
+}

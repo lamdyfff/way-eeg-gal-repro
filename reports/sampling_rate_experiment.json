@@ -1,0 +1,381 @@
+{
+  "experiment": "EEG_input_sampling_rate_control",
+  "subjects": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "source_fs": 500,
+  "downsampled_input_fs": 100,
+  "target_fs": 500,
+  "input_duration_seconds": 0.3,
+  "target_duration_seconds": 1.0,
+  "features": {
+    "channels": 21,
+    "windows": 3,
+    "window_seconds": 0.1,
+    "dimension": 63,
+    "statistic": "log standard deviation"
+  },
+  "ridge_alpha": 100.0,
+  "antialias": {
+    "type": "causal elliptic",
+    "order": 8,
+    "passband_hz": 40,
+    "stopband_hz": 50,
+    "ripple_db": 0.1,
+    "attenuation_db": 60,
+    "delay_compensation": false
+  },
+  "counts": {
+    "1": {
+      "trials": 294,
+      "runs": [
+        34,
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34
+      ]
+    },
+    "2": {
+      "trials": 294,
+      "runs": [
+        28,
+        34,
+        34,
+        34,
+        34,
+        28,
+        34,
+        34,
+        34
+      ]
+    },
+    "3": {
+      "trials": 294,
+      "runs": [
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34,
+        34
+      ]
+    },
+    "4": {
+      "trials": 294,
+      "runs": [
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34,
+        34
+      ]
+    }
+  },
+  "results": [
+    {
+      "test_subject": 1,
+      "train_subjects": [
+        2,
+        3,
+        4
+      ],
+      "config": "original_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        2.5673092848658747,
+        3.008209150856895,
+        1.1039481079951257
+      ],
+      "eeg_xyz": [
+        1.9031878066683638,
+        2.0587390376170664,
+        1.173166455265113
+      ],
+      "baseline_overall": 2.2264888479059652,
+      "eeg_overall": 1.7116977665168476,
+      "eeg_wins": 260
+    },
+    {
+      "test_subject": 1,
+      "train_subjects": [
+        2,
+        3,
+        4
+      ],
+      "config": "antialias_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        2.5673092848658747,
+        3.008209150856895,
+        1.1039481079951257
+      ],
+      "eeg_xyz": [
+        2.162525960366068,
+        2.463879043438493,
+        1.1230534676615727
+      ],
+      "baseline_overall": 2.2264888479059652,
+      "eeg_overall": 1.9164861571553782,
+      "eeg_wins": 247
+    },
+    {
+      "test_subject": 1,
+      "train_subjects": [
+        2,
+        3,
+        4
+      ],
+      "config": "antialias_100hz",
+      "trials": 294,
+      "baseline_xyz": [
+        2.5673092848658747,
+        3.008209150856895,
+        1.1039481079951257
+      ],
+      "eeg_xyz": [
+        2.1751463504387067,
+        2.502588562887797,
+        1.133874136939161
+      ],
+      "baseline_overall": 2.2264888479059652,
+      "eeg_overall": 1.9372030167552214,
+      "eeg_wins": 241
+    },
+    {
+      "test_subject": 2,
+      "train_subjects": [
+        1,
+        3,
+        4
+      ],
+      "config": "original_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        2.4877689268360412,
+        4.8853483296358,
+        1.155079911564626
+      ],
+      "eeg_xyz": [
+        2.039486389232142,
+        5.0622045188788425,
+        1.200745275396166
+      ],
+      "baseline_overall": 2.842732389345489,
+      "eeg_overall": 2.767478727835717,
+      "eeg_wins": 177
+    },
+    {
+      "test_subject": 2,
+      "train_subjects": [
+        1,
+        3,
+        4
+      ],
+      "config": "antialias_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        2.4877689268360412,
+        4.8853483296358,
+        1.155079911564626
+      ],
+      "eeg_xyz": [
+        2.059756924010111,
+        5.001758992681032,
+        1.1909851910066787
+      ],
+      "baseline_overall": 2.842732389345489,
+      "eeg_overall": 2.75083370256594,
+      "eeg_wins": 186
+    },
+    {
+      "test_subject": 2,
+      "train_subjects": [
+        1,
+        3,
+        4
+      ],
+      "config": "antialias_100hz",
+      "trials": 294,
+      "baseline_xyz": [
+        2.4877689268360412,
+        4.8853483296358,
+        1.155079911564626
+      ],
+      "eeg_xyz": [
+        2.0583230753451383,
+        4.994371811848001,
+        1.1903084009331428
+      ],
+      "baseline_overall": 2.842732389345489,
+      "eeg_overall": 2.7476677627087605,
+      "eeg_wins": 198
+    },
+    {
+      "test_subject": 3,
+      "train_subjects": [
+        1,
+        2,
+        4
+      ],
+      "config": "original_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        0.9764513606984744,
+        1.7507704287395687,
+        1.022853051783978
+      ],
+      "eeg_xyz": [
+        1.146206560041184,
+        3.570344036271729,
+        1.071010595230463
+      ],
+      "baseline_overall": 1.250024947074007,
+      "eeg_overall": 1.9291870638477924,
+      "eeg_wins": 34
+    },
+    {
+      "test_subject": 3,
+      "train_subjects": [
+        1,
+        2,
+        4
+      ],
+      "config": "antialias_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        0.9764513606984744,
+        1.7507704287395687,
+        1.022853051783978
+      ],
+      "eeg_xyz": [
+        1.246926370027622,
+        3.8652351250275685,
+        1.1113407655867957
+      ],
+      "baseline_overall": 1.250024947074007,
+      "eeg_overall": 2.0745007535473285,
+      "eeg_wins": 33
+    },
+    {
+      "test_subject": 3,
+      "train_subjects": [
+        1,
+        2,
+        4
+      ],
+      "config": "antialias_100hz",
+      "trials": 294,
+      "baseline_xyz": [
+        0.9764513606984744,
+        1.7507704287395687,
+        1.022853051783978
+      ],
+      "eeg_xyz": [
+        1.2525820469116056,
+        3.8919077378913087,
+        1.1113279086376078
+      ],
+      "baseline_overall": 1.250024947074007,
+      "eeg_overall": 2.085272564480174,
+      "eeg_wins": 35
+    },
+    {
+      "test_subject": 4,
+      "train_subjects": [
+        1,
+        2,
+        3
+      ],
+      "config": "original_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        1.1748506310642164,
+        1.8002024399062113,
+        1.045689793774199
+      ],
+      "eeg_xyz": [
+        1.1080023677626598,
+        1.8494071525380005,
+        1.2431629939484437
+      ],
+      "baseline_overall": 1.3402476215815422,
+      "eeg_overall": 1.4001908380830346,
+      "eeg_wins": 131
+    },
+    {
+      "test_subject": 4,
+      "train_subjects": [
+        1,
+        2,
+        3
+      ],
+      "config": "antialias_500hz",
+      "trials": 294,
+      "baseline_xyz": [
+        1.1748506310642164,
+        1.8002024399062113,
+        1.045689793774199
+      ],
+      "eeg_xyz": [
+        1.0909129137639593,
+        1.9508828106555736,
+        1.270295198253148
+      ],
+      "baseline_overall": 1.3402476215815422,
+      "eeg_overall": 1.4373636408908936,
+      "eeg_wins": 112
+    },
+    {
+      "test_subject": 4,
+      "train_subjects": [
+        1,
+        2,
+        3
+      ],
+      "config": "antialias_100hz",
+      "trials": 294,
+      "baseline_xyz": [
+        1.1748506310642164,
+        1.8002024399062113,
+        1.045689793774199
+      ],
+      "eeg_xyz": [
+        1.0911292543890558,
+        1.9532466146892185,
+        1.2793431858113262
+      ],
+      "baseline_overall": 1.3402476215815422,
+      "eeg_overall": 1.4412396849632003,
+      "eeg_wins": 117
+    }
+  ],
+  "aggregates": {
+    "original_500hz": {
+      "baseline_overall": 1.9148734514767511,
+      "eeg_overall": 1.952138599070848
+    },
+    "antialias_500hz": {
+      "baseline_overall": 1.9148734514767511,
+      "eeg_overall": 2.044796063539885
+    },
+    "antialias_100hz": {
+      "baseline_overall": 1.9148734514767511,
+      "eeg_overall": 2.0528457572268395
+    }
+  }
+}

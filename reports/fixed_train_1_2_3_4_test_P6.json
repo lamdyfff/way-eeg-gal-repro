@@ -1,0 +1,2765 @@
+{
+  "protocol": "fixed_train_1_2_3_4_test_P6_protocol.json",
+  "configuration": {
+    "train_subjects": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "test_subject": 6,
+    "runs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "fs": 500,
+    "input_points": 150,
+    "target_points": 500,
+    "channels": [
+      "F3",
+      "Fz",
+      "F4",
+      "FC5",
+      "FC1",
+      "FC2",
+      "FC6",
+      "C3",
+      "Cz",
+      "C4",
+      "CP5",
+      "CP1",
+      "CP2",
+      "CP6",
+      "P7",
+      "P3",
+      "Pz",
+      "P4",
+      "O1",
+      "Oz",
+      "O2"
+    ],
+    "eeg_processing": "21-channel average reference; continuous causal fourth-order Butterworth 0.1-40Hz; no ICA",
+    "features": "63 log std features from three consecutive 50-point windows",
+    "ridge_alpha": 100.0,
+    "standardization": "training subjects only",
+    "target_processing": "raw wrist XYZ; subtract own onset position; no target filter/resampling",
+    "primary_metric": "MAE over all trials, 500 time samples and XYZ",
+    "secondary_metrics": [
+      "XYZ MAE",
+      "trial wins vs training mean trajectory",
+      "runwise MAE"
+    ],
+    "plots": "mean trajectories and first trial; no best/worst trial selection",
+    "source_sha256": {
+      "fixed_subject_test.py": "8f557aa23952cfc7d5d1e379db3f0892cf9ed88afa5296ae2d9f9535ccbaf111",
+      "subject_holdout_baseline.py": "7575a96d92d07480176ba1a20ce3cf02af347fb116382cf1f48f9ce6e7c47569",
+      "audit_kinematics_alignment.py": "d6b18c06a431c892bb5c89037201073debf39ada7079b1ef5cb04a69056a04a7"
+    },
+    "file_size_inventory": {
+      "P1": [
+        {
+          "name": "P1_AllLifts.mat",
+          "bytes": 40220
+        },
+        {
+          "name": "HS_P1_S1.mat",
+          "bytes": 36975335
+        },
+        {
+          "name": "WS_P1_S1.mat",
+          "bytes": 50960640
+        },
+        {
+          "name": "HS_P1_S2.mat",
+          "bytes": 69596329
+        },
+        {
+          "name": "WS_P1_S2.mat",
+          "bytes": 50074253
+        },
+        {
+          "name": "HS_P1_S3.mat",
+          "bytes": 55155450
+        },
+        {
+          "name": "WS_P1_S3.mat",
+          "bytes": 40489513
+        },
+        {
+          "name": "HS_P1_S4.mat",
+          "bytes": 35802164
+        },
+        {
+          "name": "WS_P1_S4.mat",
+          "bytes": 49614257
+        },
+        {
+          "name": "HS_P1_S5.mat",
+          "bytes": 52769956
+        },
+        {
+          "name": "WS_P1_S5.mat",
+          "bytes": 39438571
+        },
+        {
+          "name": "HS_P1_S6.mat",
+          "bytes": 64427395
+        },
+        {
+          "name": "WS_P1_S6.mat",
+          "bytes": 49424803
+        },
+        {
+          "name": "HS_P1_S7.mat",
+          "bytes": 36413728
+        },
+        {
+          "name": "WS_P1_S7.mat",
+          "bytes": 49955122
+        },
+        {
+          "name": "HS_P1_S8.mat",
+          "bytes": 35223276
+        },
+        {
+          "name": "WS_P1_S8.mat",
+          "bytes": 48872353
+        },
+        {
+          "name": "HS_P1_S9.mat",
+          "bytes": 35112104
+        },
+        {
+          "name": "WS_P1_S9.mat",
+          "bytes": 49152724
+        }
+      ],
+      "P2": [
+        {
+          "name": "P2_AllLifts.mat",
+          "bytes": 42645
+        },
+        {
+          "name": "HS_P2_S1.mat",
+          "bytes": 70454110
+        },
+        {
+          "name": "WS_P2_S1.mat",
+          "bytes": 50513325
+        },
+        {
+          "name": "HS_P2_S2.mat",
+          "bytes": 80951932
+        },
+        {
+          "name": "WS_P2_S2.mat",
+          "bytes": 62110744
+        },
+        {
+          "name": "HS_P2_S3.mat",
+          "bytes": 42875069
+        },
+        {
+          "name": "WS_P2_S3.mat",
+          "bytes": 55737414
+        },
+        {
+          "name": "HS_P2_S4.mat",
+          "bytes": 67959007
+        },
+        {
+          "name": "WS_P2_S4.mat",
+          "bytes": 53686335
+        },
+        {
+          "name": "HS_P2_S5.mat",
+          "bytes": 42416861
+        },
+        {
+          "name": "WS_P2_S5.mat",
+          "bytes": 54533514
+        },
+        {
+          "name": "HS_P2_S6.mat",
+          "bytes": 50753009
+        },
+        {
+          "name": "WS_P2_S6.mat",
+          "bytes": 43942053
+        },
+        {
+          "name": "HS_P2_S7.mat",
+          "bytes": 41732784
+        },
+        {
+          "name": "WS_P2_S7.mat",
+          "bytes": 53622524
+        },
+        {
+          "name": "HS_P2_S8.mat",
+          "bytes": 41791592
+        },
+        {
+          "name": "WS_P2_S8.mat",
+          "bytes": 54173894
+        },
+        {
+          "name": "HS_P2_S9.mat",
+          "bytes": 41018843
+        },
+        {
+          "name": "WS_P2_S9.mat",
+          "bytes": 53923794
+        }
+      ],
+      "P3": [
+        {
+          "name": "P3_AllLifts.mat",
+          "bytes": 40083
+        },
+        {
+          "name": "HS_P3_S1.mat",
+          "bytes": 32217255
+        },
+        {
+          "name": "WS_P3_S1.mat",
+          "bytes": 44926850
+        },
+        {
+          "name": "HS_P3_S2.mat",
+          "bytes": 46012891
+        },
+        {
+          "name": "WS_P3_S2.mat",
+          "bytes": 37402100
+        },
+        {
+          "name": "HS_P3_S3.mat",
+          "bytes": 55507419
+        },
+        {
+          "name": "WS_P3_S3.mat",
+          "bytes": 45592174
+        },
+        {
+          "name": "HS_P3_S4.mat",
+          "bytes": 46809915
+        },
+        {
+          "name": "WS_P3_S4.mat",
+          "bytes": 37239229
+        },
+        {
+          "name": "HS_P3_S5.mat",
+          "bytes": 59619007
+        },
+        {
+          "name": "WS_P3_S5.mat",
+          "bytes": 45787468
+        },
+        {
+          "name": "HS_P3_S6.mat",
+          "bytes": 31220566
+        },
+        {
+          "name": "WS_P3_S6.mat",
+          "bytes": 43954673
+        },
+        {
+          "name": "HS_P3_S7.mat",
+          "bytes": 31168194
+        },
+        {
+          "name": "WS_P3_S7.mat",
+          "bytes": 44036221
+        },
+        {
+          "name": "HS_P3_S8.mat",
+          "bytes": 31533026
+        },
+        {
+          "name": "WS_P3_S8.mat",
+          "bytes": 44971220
+        },
+        {
+          "name": "HS_P3_S9.mat",
+          "bytes": 30981366
+        },
+        {
+          "name": "WS_P3_S9.mat",
+          "bytes": 45763941
+        }
+      ],
+      "P4": [
+        {
+          "name": "P4_AllLifts.mat",
+          "bytes": 41002
+        },
+        {
+          "name": "HS_P4_S1.mat",
+          "bytes": 61403334
+        },
+        {
+          "name": "WS_P4_S1.mat",
+          "bytes": 49560214
+        },
+        {
+          "name": "HS_P4_S2.mat",
+          "bytes": 51711120
+        },
+        {
+          "name": "WS_P4_S2.mat",
+          "bytes": 40546357
+        },
+        {
+          "name": "HS_P4_S3.mat",
+          "bytes": 36977040
+        },
+        {
+          "name": "WS_P4_S3.mat",
+          "bytes": 48765518
+        },
+        {
+          "name": "HS_P4_S4.mat",
+          "bytes": 50249905
+        },
+        {
+          "name": "WS_P4_S4.mat",
+          "bytes": 39280581
+        },
+        {
+          "name": "HS_P4_S5.mat",
+          "bytes": 34788622
+        },
+        {
+          "name": "WS_P4_S5.mat",
+          "bytes": 47722675
+        },
+        {
+          "name": "HS_P4_S6.mat",
+          "bytes": 60280806
+        },
+        {
+          "name": "WS_P4_S6.mat",
+          "bytes": 48362654
+        },
+        {
+          "name": "HS_P4_S7.mat",
+          "bytes": 34137945
+        },
+        {
+          "name": "WS_P4_S7.mat",
+          "bytes": 47048282
+        },
+        {
+          "name": "HS_P4_S8.mat",
+          "bytes": 34308151
+        },
+        {
+          "name": "WS_P4_S8.mat",
+          "bytes": 46948948
+        },
+        {
+          "name": "HS_P4_S9.mat",
+          "bytes": 33944255
+        },
+        {
+          "name": "WS_P4_S9.mat",
+          "bytes": 46519015
+        }
+      ],
+      "P6": [
+        {
+          "name": "P6_AllLifts.mat",
+          "bytes": 41962
+        },
+        {
+          "name": "HS_P6_S1.mat",
+          "bytes": 40930930
+        },
+        {
+          "name": "WS_P6_S1.mat",
+          "bytes": 54223268
+        },
+        {
+          "name": "HS_P6_S2.mat",
+          "bytes": 66337093
+        },
+        {
+          "name": "WS_P6_S2.mat",
+          "bytes": 52776580
+        },
+        {
+          "name": "HS_P6_S3.mat",
+          "bytes": 55346333
+        },
+        {
+          "name": "WS_P6_S3.mat",
+          "bytes": 43238606
+        },
+        {
+          "name": "HS_P6_S4.mat",
+          "bytes": 38157744
+        },
+        {
+          "name": "WS_P6_S4.mat",
+          "bytes": 51106844
+        },
+        {
+          "name": "HS_P6_S5.mat",
+          "bytes": 53028736
+        },
+        {
+          "name": "WS_P6_S5.mat",
+          "bytes": 41903219
+        },
+        {
+          "name": "HS_P6_S6.mat",
+          "bytes": 64054320
+        },
+        {
+          "name": "WS_P6_S6.mat",
+          "bytes": 51477468
+        },
+        {
+          "name": "HS_P6_S7.mat",
+          "bytes": 36603577
+        },
+        {
+          "name": "WS_P6_S7.mat",
+          "bytes": 49849823
+        },
+        {
+          "name": "HS_P6_S8.mat",
+          "bytes": 36958856
+        },
+        {
+          "name": "WS_P6_S8.mat",
+          "bytes": 49814356
+        },
+        {
+          "name": "HS_P6_S9.mat",
+          "bytes": 37555679
+        },
+        {
+          "name": "WS_P6_S9.mat",
+          "bytes": 50269466
+        }
+      ]
+    },
+    "numpy_version": "2.4.6"
+  },
+  "scored_utc": "2026-09-30T07:26:58.927792+00:00",
+  "same_protocol_rerun": false,
+  "alignment_audit": "passed internal time, Lift sequence and sampled HS/WS C3/XYZ checks; physical units unconfirmed",
+  "counts": {
+    "P1": {
+      "trials": 294,
+      "runs": [
+        34,
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34
+      ]
+    },
+    "P2": {
+      "trials": 294,
+      "runs": [
+        28,
+        34,
+        34,
+        34,
+        34,
+        28,
+        34,
+        34,
+        34
+      ]
+    },
+    "P3": {
+      "trials": 294,
+      "runs": [
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34,
+        34
+      ]
+    },
+    "P4": {
+      "trials": 294,
+      "runs": [
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34,
+        34
+      ]
+    },
+    "P6": {
+      "trials": 294,
+      "runs": [
+        34,
+        34,
+        28,
+        34,
+        28,
+        34,
+        34,
+        34,
+        34
+      ]
+    }
+  },
+  "train_trials": 1176,
+  "test_trials": 294,
+  "baseline_xyz": [
+    1.183715778147994,
+    2.110344688888889,
+    0.9588389357443652
+  ],
+  "eeg_xyz": [
+    1.7088877556196538,
+    2.495674383764679,
+    1.0537183432014248
+  ],
+  "baseline_overall": 1.4176331342604158,
+  "eeg_overall": 1.752760160861919,
+  "eeg_wins": 75,
+  "runwise": [
+    {
+      "run": 1,
+      "trials": 34,
+      "baseline_xyz": [
+        2.024333024209683,
+        3.2787626825230087,
+        1.244941881252501
+      ],
+      "eeg_xyz": [
+        2.3869463403752382,
+        3.699748437328903,
+        1.3283360430319393
+      ],
+      "baseline_overall": 2.1826791959950644,
+      "eeg_overall": 2.4716769402453695,
+      "eeg_wins": 10
+    },
+    {
+      "run": 2,
+      "trials": 34,
+      "baseline_xyz": [
+        0.8760421288515408,
+        1.2952958579631852,
+        1.2249134003601436
+      ],
+      "eeg_xyz": [
+        1.3880036727673024,
+        1.6627972922608178,
+        1.1560423428088435
+      ],
+      "baseline_overall": 1.1320837957249568,
+      "eeg_overall": 1.4022811026123263,
+      "eeg_wins": 7
+    },
+    {
+      "run": 3,
+      "trials": 28,
+      "baseline_xyz": [
+        0.913225088678329,
+        2.57090488287172,
+        0.9763515647473269
+      ],
+      "eeg_xyz": [
+        1.2992180686005816,
+        1.8920876700678761,
+        1.0670695562804633
+      ],
+      "baseline_overall": 1.4868271787657916,
+      "eeg_overall": 1.4194584316496441,
+      "eeg_wins": 17
+    },
+    {
+      "run": 4,
+      "trials": 34,
+      "baseline_xyz": [
+        1.0501641306522616,
+        3.6218293702080837,
+        0.9077333272308925
+      ],
+      "eeg_xyz": [
+        1.7120847037141507,
+        2.7614506602084226,
+        1.0696701954717769
+      ],
+      "baseline_overall": 1.859908942697079,
+      "eeg_overall": 1.8477351864647806,
+      "eeg_wins": 19
+    },
+    {
+      "run": 5,
+      "trials": 28,
+      "baseline_xyz": [
+        1.1897455685131193,
+        1.4356007092322647,
+        0.8496772681000972
+      ],
+      "eeg_xyz": [
+        1.178448155721097,
+        1.4877909837872865,
+        1.0024898320130327
+      ],
+      "baseline_overall": 1.1583411819484937,
+      "eeg_overall": 1.222909657173807,
+      "eeg_wins": 11
+    },
+    {
+      "run": 6,
+      "trials": 34,
+      "baseline_xyz": [
+        1.1158893727490997,
+        1.148025868177271,
+        0.916490401360544
+      ],
+      "eeg_xyz": [
+        1.3061571020608125,
+        2.337699083881129,
+        1.025662699819134
+      ],
+      "baseline_overall": 1.0601352140956382,
+      "eeg_overall": 1.5565062952536848,
+      "eeg_wins": 3
+    },
+    {
+      "run": 7,
+      "trials": 34,
+      "baseline_xyz": [
+        0.8586846118447379,
+        1.0403500357943176,
+        0.7497756372549019
+      ],
+      "eeg_xyz": [
+        1.7392223361326564,
+        1.971132155254533,
+        0.7981459639793851
+      ],
+      "baseline_overall": 0.8829367616313193,
+      "eeg_overall": 1.5028334851221883,
+      "eeg_wins": 2
+    },
+    {
+      "run": 8,
+      "trials": 34,
+      "baseline_xyz": [
+        1.0551353121248501,
+        2.069287112134854,
+        0.9044484161664667
+      ],
+      "eeg_xyz": [
+        1.8060073024258327,
+        2.4832712894244775,
+        1.0372977076383068
+      ],
+      "baseline_overall": 1.3429569468087232,
+      "eeg_overall": 1.7755254331628754,
+      "eeg_wins": 6
+    },
+    {
+      "run": 9,
+      "trials": 34,
+      "baseline_xyz": [
+        1.5235531952781112,
+        2.495248542446979,
+        0.8390451654661866
+      ],
+      "eeg_xyz": [
+        2.398000479911573,
+        3.880714802785288,
+        0.9920665186917577
+      ],
+      "baseline_overall": 1.619282301063759,
+      "eeg_overall": 2.423593933796208,
+      "eeg_wins": 0
+    }
+  ],
+  "trialwise": [
+    {
+      "trial": 1,
+      "run": 1,
+      "trial_in_run": 1,
+      "baseline_mae": 1.9594261760204084,
+      "eeg_mae": 1.8350786477226506
+    },
+    {
+      "trial": 2,
+      "run": 1,
+      "trial_in_run": 2,
+      "baseline_mae": 0.4613366132086165,
+      "eeg_mae": 0.7335028475084548
+    },
+    {
+      "trial": 3,
+      "run": 1,
+      "trial_in_run": 3,
+      "baseline_mae": 7.614695777380953,
+      "eeg_mae": 7.981196413115317
+    },
+    {
+      "trial": 4,
+      "run": 1,
+      "trial_in_run": 4,
+      "baseline_mae": 1.8336101023242632,
+      "eeg_mae": 1.5066192121726703
+    },
+    {
+      "trial": 5,
+      "run": 1,
+      "trial_in_run": 5,
+      "baseline_mae": 0.6720374630952385,
+      "eeg_mae": 0.8075299581061023
+    },
+    {
+      "trial": 6,
+      "run": 1,
+      "trial_in_run": 6,
+      "baseline_mae": 1.0764105666099786,
+      "eeg_mae": 0.801945758040175
+    },
+    {
+      "trial": 7,
+      "run": 1,
+      "trial_in_run": 7,
+      "baseline_mae": 7.556933711054422,
+      "eeg_mae": 7.717260635933728
+    },
+    {
+      "trial": 8,
+      "run": 1,
+      "trial_in_run": 8,
+      "baseline_mae": 1.3045290065192734,
+      "eeg_mae": 1.1271266973842524
+    },
+    {
+      "trial": 9,
+      "run": 1,
+      "trial_in_run": 9,
+      "baseline_mae": 1.0858307253401371,
+      "eeg_mae": 1.00427564941733
+    },
+    {
+      "trial": 10,
+      "run": 1,
+      "trial_in_run": 10,
+      "baseline_mae": 0.703502714342403,
+      "eeg_mae": 1.0142686286106488
+    },
+    {
+      "trial": 11,
+      "run": 1,
+      "trial_in_run": 11,
+      "baseline_mae": 0.827618885430838,
+      "eeg_mae": 0.8437587217184949
+    },
+    {
+      "trial": 12,
+      "run": 1,
+      "trial_in_run": 12,
+      "baseline_mae": 1.8859534680838994,
+      "eeg_mae": 2.6171612337574186
+    },
+    {
+      "trial": 13,
+      "run": 1,
+      "trial_in_run": 13,
+      "baseline_mae": 0.5620801157029485,
+      "eeg_mae": 0.9915956896555963
+    },
+    {
+      "trial": 14,
+      "run": 1,
+      "trial_in_run": 14,
+      "baseline_mae": 0.8077173854308376,
+      "eeg_mae": 0.7028341500071122
+    },
+    {
+      "trial": 15,
+      "run": 1,
+      "trial_in_run": 15,
+      "baseline_mae": 8.200092226360544,
+      "eeg_mae": 8.570444630032977
+    },
+    {
+      "trial": 16,
+      "run": 1,
+      "trial_in_run": 16,
+      "baseline_mae": 0.8244823522108833,
+      "eeg_mae": 0.8890295963020207
+    },
+    {
+      "trial": 17,
+      "run": 1,
+      "trial_in_run": 17,
+      "baseline_mae": 0.7665087450680272,
+      "eeg_mae": 0.7099829078544063
+    },
+    {
+      "trial": 18,
+      "run": 1,
+      "trial_in_run": 18,
+      "baseline_mae": 0.899810107993196,
+      "eeg_mae": 1.2000702949882083
+    },
+    {
+      "trial": 19,
+      "run": 1,
+      "trial_in_run": 19,
+      "baseline_mae": 1.115855822959182,
+      "eeg_mae": 1.472008729857439
+    },
+    {
+      "trial": 20,
+      "run": 1,
+      "trial_in_run": 20,
+      "baseline_mae": 1.962715846315193,
+      "eeg_mae": 2.176113218392116
+    },
+    {
+      "trial": 21,
+      "run": 1,
+      "trial_in_run": 21,
+      "baseline_mae": 1.863148733730157,
+      "eeg_mae": 3.497742951544023
+    },
+    {
+      "trial": 22,
+      "run": 1,
+      "trial_in_run": 22,
+      "baseline_mae": 0.8490723891723329,
+      "eeg_mae": 1.2218783669769233
+    },
+    {
+      "trial": 23,
+      "run": 1,
+      "trial_in_run": 23,
+      "baseline_mae": 1.4327700125283445,
+      "eeg_mae": 1.3036291144929535
+    },
+    {
+      "trial": 24,
+      "run": 1,
+      "trial_in_run": 24,
+      "baseline_mae": 7.724853833843538,
+      "eeg_mae": 8.957079583470943
+    },
+    {
+      "trial": 25,
+      "run": 1,
+      "trial_in_run": 25,
+      "baseline_mae": 8.00947646309524,
+      "eeg_mae": 9.030050397858608
+    },
+    {
+      "trial": 26,
+      "run": 1,
+      "trial_in_run": 26,
+      "baseline_mae": 1.181883168424036,
+      "eeg_mae": 1.9741712223170171
+    },
+    {
+      "trial": 27,
+      "run": 1,
+      "trial_in_run": 27,
+      "baseline_mae": 2.514039267743766,
+      "eeg_mae": 2.9214756096332204
+    },
+    {
+      "trial": 28,
+      "run": 1,
+      "trial_in_run": 28,
+      "baseline_mae": 1.21010553701814,
+      "eeg_mae": 1.6398825155478347
+    },
+    {
+      "trial": 29,
+      "run": 1,
+      "trial_in_run": 29,
+      "baseline_mae": 1.5932859150226766,
+      "eeg_mae": 2.2202202804843125
+    },
+    {
+      "trial": 30,
+      "run": 1,
+      "trial_in_run": 30,
+      "baseline_mae": 1.1106245096938767,
+      "eeg_mae": 1.1745662968510566
+    },
+    {
+      "trial": 31,
+      "run": 1,
+      "trial_in_run": 31,
+      "baseline_mae": 1.3084490015306105,
+      "eeg_mae": 1.0427471487529354
+    },
+    {
+      "trial": 32,
+      "run": 1,
+      "trial_in_run": 32,
+      "baseline_mae": 1.1031786009637192,
+      "eeg_mae": 1.5484302866563846
+    },
+    {
+      "trial": 33,
+      "run": 1,
+      "trial_in_run": 33,
+      "baseline_mae": 1.0973087937074821,
+      "eeg_mae": 0.9463566116800772
+    },
+    {
+      "trial": 34,
+      "run": 1,
+      "trial_in_run": 34,
+      "baseline_mae": 1.0917486259070286,
+      "eeg_mae": 1.8569819614991472
+    },
+    {
+      "trial": 35,
+      "run": 2,
+      "trial_in_run": 1,
+      "baseline_mae": 2.6170749039115653,
+      "eeg_mae": 3.031878250062152
+    },
+    {
+      "trial": 36,
+      "run": 2,
+      "trial_in_run": 2,
+      "baseline_mae": 1.0256876364512473,
+      "eeg_mae": 0.9922527171892785
+    },
+    {
+      "trial": 37,
+      "run": 2,
+      "trial_in_run": 3,
+      "baseline_mae": 0.518444101190477,
+      "eeg_mae": 0.47092297334998406
+    },
+    {
+      "trial": 38,
+      "run": 2,
+      "trial_in_run": 4,
+      "baseline_mae": 0.9049994680839005,
+      "eeg_mae": 1.3299033914812404
+    },
+    {
+      "trial": 39,
+      "run": 2,
+      "trial_in_run": 5,
+      "baseline_mae": 1.4600282018707498,
+      "eeg_mae": 1.824954393220038
+    },
+    {
+      "trial": 40,
+      "run": 2,
+      "trial_in_run": 6,
+      "baseline_mae": 0.6269119933673476,
+      "eeg_mae": 1.436813904637505
+    },
+    {
+      "trial": 41,
+      "run": 2,
+      "trial_in_run": 7,
+      "baseline_mae": 0.6107035049319729,
+      "eeg_mae": 0.7721684739307084
+    },
+    {
+      "trial": 42,
+      "run": 2,
+      "trial_in_run": 8,
+      "baseline_mae": 0.590629227721089,
+      "eeg_mae": 0.7030771590133942
+    },
+    {
+      "trial": 43,
+      "run": 2,
+      "trial_in_run": 9,
+      "baseline_mae": 0.8079455438208597,
+      "eeg_mae": 1.2324693321101108
+    },
+    {
+      "trial": 44,
+      "run": 2,
+      "trial_in_run": 10,
+      "baseline_mae": 1.0506820677437627,
+      "eeg_mae": 1.8039997357375033
+    },
+    {
+      "trial": 45,
+      "run": 2,
+      "trial_in_run": 11,
+      "baseline_mae": 1.5381656024376396,
+      "eeg_mae": 1.7841433854087663
+    },
+    {
+      "trial": 46,
+      "run": 2,
+      "trial_in_run": 12,
+      "baseline_mae": 0.6873345636621311,
+      "eeg_mae": 1.2274686759916327
+    },
+    {
+      "trial": 47,
+      "run": 2,
+      "trial_in_run": 13,
+      "baseline_mae": 1.0630269003968265,
+      "eeg_mae": 0.9904745757562577
+    },
+    {
+      "trial": 48,
+      "run": 2,
+      "trial_in_run": 14,
+      "baseline_mae": 0.8938432713718808,
+      "eeg_mae": 0.9675088931696526
+    },
+    {
+      "trial": 49,
+      "run": 2,
+      "trial_in_run": 15,
+      "baseline_mae": 0.8218108130952384,
+      "eeg_mae": 1.0921620060393418
+    },
+    {
+      "trial": 50,
+      "run": 2,
+      "trial_in_run": 16,
+      "baseline_mae": 0.9012998226190478,
+      "eeg_mae": 0.8501598114377418
+    },
+    {
+      "trial": 51,
+      "run": 2,
+      "trial_in_run": 17,
+      "baseline_mae": 1.1639488585600917,
+      "eeg_mae": 1.1979574497058005
+    },
+    {
+      "trial": 52,
+      "run": 2,
+      "trial_in_run": 18,
+      "baseline_mae": 1.3216178586734681,
+      "eeg_mae": 1.8784767560616313
+    },
+    {
+      "trial": 53,
+      "run": 2,
+      "trial_in_run": 19,
+      "baseline_mae": 0.8871255082199535,
+      "eeg_mae": 1.0602315653104968
+    },
+    {
+      "trial": 54,
+      "run": 2,
+      "trial_in_run": 20,
+      "baseline_mae": 1.054308105272108,
+      "eeg_mae": 1.069509079209988
+    },
+    {
+      "trial": 55,
+      "run": 2,
+      "trial_in_run": 21,
+      "baseline_mae": 1.296492434410429,
+      "eeg_mae": 1.6051032437176391
+    },
+    {
+      "trial": 56,
+      "run": 2,
+      "trial_in_run": 22,
+      "baseline_mae": 1.0214118223922894,
+      "eeg_mae": 1.337633923277139
+    },
+    {
+      "trial": 57,
+      "run": 2,
+      "trial_in_run": 23,
+      "baseline_mae": 0.9293106255668939,
+      "eeg_mae": 1.119753912713566
+    },
+    {
+      "trial": 58,
+      "run": 2,
+      "trial_in_run": 24,
+      "baseline_mae": 1.335639730102043,
+      "eeg_mae": 1.3699839648496934
+    },
+    {
+      "trial": 59,
+      "run": 2,
+      "trial_in_run": 25,
+      "baseline_mae": 1.1491236463151937,
+      "eeg_mae": 1.4631473753146789
+    },
+    {
+      "trial": 60,
+      "run": 2,
+      "trial_in_run": 26,
+      "baseline_mae": 0.8501512664966009,
+      "eeg_mae": 1.2059390812802224
+    },
+    {
+      "trial": 61,
+      "run": 2,
+      "trial_in_run": 27,
+      "baseline_mae": 0.8614751127551022,
+      "eeg_mae": 1.466584501295365
+    },
+    {
+      "trial": 62,
+      "run": 2,
+      "trial_in_run": 28,
+      "baseline_mae": 1.076807477154196,
+      "eeg_mae": 1.2753240167822801
+    },
+    {
+      "trial": 63,
+      "run": 2,
+      "trial_in_run": 29,
+      "baseline_mae": 2.807616215136052,
+      "eeg_mae": 3.192028322676677
+    },
+    {
+      "trial": 64,
+      "run": 2,
+      "trial_in_run": 30,
+      "baseline_mae": 1.0884911486961466,
+      "eeg_mae": 0.8677583035248463
+    },
+    {
+      "trial": 65,
+      "run": 2,
+      "trial_in_run": 31,
+      "baseline_mae": 1.717923683956916,
+      "eeg_mae": 3.243186161326688
+    },
+    {
+      "trial": 66,
+      "run": 2,
+      "trial_in_run": 32,
+      "baseline_mae": 1.2994347874716536,
+      "eeg_mae": 1.5715981870423763
+    },
+    {
+      "trial": 67,
+      "run": 2,
+      "trial_in_run": 33,
+      "baseline_mae": 1.0406364963151924,
+      "eeg_mae": 0.9345155443844408
+    },
+    {
+      "trial": 68,
+      "run": 2,
+      "trial_in_run": 34,
+      "baseline_mae": 1.4707466544784595,
+      "eeg_mae": 1.308468421810258
+    },
+    {
+      "trial": 69,
+      "run": 3,
+      "trial_in_run": 1,
+      "baseline_mae": 1.186356435430839,
+      "eeg_mae": 1.537046622866156
+    },
+    {
+      "trial": 70,
+      "run": 3,
+      "trial_in_run": 2,
+      "baseline_mae": 0.6018616047052171,
+      "eeg_mae": 1.7275472864157264
+    },
+    {
+      "trial": 71,
+      "run": 3,
+      "trial_in_run": 3,
+      "baseline_mae": 1.076744509920634,
+      "eeg_mae": 0.746652236632509
+    },
+    {
+      "trial": 72,
+      "run": 3,
+      "trial_in_run": 4,
+      "baseline_mae": 1.111556407539684,
+      "eeg_mae": 0.8666055666023904
+    },
+    {
+      "trial": 73,
+      "run": 3,
+      "trial_in_run": 5,
+      "baseline_mae": 1.2832142133219955,
+      "eeg_mae": 1.0841747157383246
+    },
+    {
+      "trial": 74,
+      "run": 3,
+      "trial_in_run": 6,
+      "baseline_mae": 1.745633204024942,
+      "eeg_mae": 1.647586459020978
+    },
+    {
+      "trial": 75,
+      "run": 3,
+      "trial_in_run": 7,
+      "baseline_mae": 1.8846764559523805,
+      "eeg_mae": 1.8603778258695751
+    },
+    {
+      "trial": 76,
+      "run": 3,
+      "trial_in_run": 8,
+      "baseline_mae": 1.3830478509637196,
+      "eeg_mae": 1.4418442020287838
+    },
+    {
+      "trial": 77,
+      "run": 3,
+      "trial_in_run": 9,
+      "baseline_mae": 1.5646165807823138,
+      "eeg_mae": 1.609925584073717
+    },
+    {
+      "trial": 78,
+      "run": 3,
+      "trial_in_run": 10,
+      "baseline_mae": 1.7279723375850347,
+      "eeg_mae": 1.532962921785381
+    },
+    {
+      "trial": 79,
+      "run": 3,
+      "trial_in_run": 11,
+      "baseline_mae": 2.2030439362244874,
+      "eeg_mae": 1.1538064562737873
+    },
+    {
+      "trial": 80,
+      "run": 3,
+      "trial_in_run": 12,
+      "baseline_mae": 1.8841395287414962,
+      "eeg_mae": 1.8494784777873834
+    },
+    {
+      "trial": 81,
+      "run": 3,
+      "trial_in_run": 13,
+      "baseline_mae": 2.14673621286848,
+      "eeg_mae": 1.827703042316261
+    },
+    {
+      "trial": 82,
+      "run": 3,
+      "trial_in_run": 14,
+      "baseline_mae": 1.2167956198979593,
+      "eeg_mae": 1.8664700853467402
+    },
+    {
+      "trial": 83,
+      "run": 3,
+      "trial_in_run": 15,
+      "baseline_mae": 1.7608275798752826,
+      "eeg_mae": 1.269569117722048
+    },
+    {
+      "trial": 84,
+      "run": 3,
+      "trial_in_run": 16,
+      "baseline_mae": 1.8747378289682528,
+      "eeg_mae": 1.4699759656918217
+    },
+    {
+      "trial": 85,
+      "run": 3,
+      "trial_in_run": 17,
+      "baseline_mae": 1.686992715136056,
+      "eeg_mae": 1.3240284344134485
+    },
+    {
+      "trial": 86,
+      "run": 3,
+      "trial_in_run": 18,
+      "baseline_mae": 1.8317362232993195,
+      "eeg_mae": 1.0952952188893148
+    },
+    {
+      "trial": 87,
+      "run": 3,
+      "trial_in_run": 19,
+      "baseline_mae": 1.401150302437641,
+      "eeg_mae": 1.8351808886961214
+    },
+    {
+      "trial": 88,
+      "run": 3,
+      "trial_in_run": 20,
+      "baseline_mae": 1.0205636516439907,
+      "eeg_mae": 1.0768253355182469
+    },
+    {
+      "trial": 89,
+      "run": 3,
+      "trial_in_run": 21,
+      "baseline_mae": 1.5725097977891158,
+      "eeg_mae": 1.8934914933339053
+    },
+    {
+      "trial": 90,
+      "run": 3,
+      "trial_in_run": 22,
+      "baseline_mae": 1.0262952469954638,
+      "eeg_mae": 1.2346956756658778
+    },
+    {
+      "trial": 91,
+      "run": 3,
+      "trial_in_run": 23,
+      "baseline_mae": 0.9252819925736966,
+      "eeg_mae": 1.7454980700454767
+    },
+    {
+      "trial": 92,
+      "run": 3,
+      "trial_in_run": 24,
+      "baseline_mae": 1.3164980145691585,
+      "eeg_mae": 1.0953788680540988
+    },
+    {
+      "trial": 93,
+      "run": 3,
+      "trial_in_run": 25,
+      "baseline_mae": 1.4395387846371883,
+      "eeg_mae": 0.8780252171948661
+    },
+    {
+      "trial": 94,
+      "run": 3,
+      "trial_in_run": 26,
+      "baseline_mae": 1.2259181301020396,
+      "eeg_mae": 1.3099547940555627
+    },
+    {
+      "trial": 95,
+      "run": 3,
+      "trial_in_run": 27,
+      "baseline_mae": 1.712089405839003,
+      "eeg_mae": 1.2577830912031172
+    },
+    {
+      "trial": 96,
+      "run": 3,
+      "trial_in_run": 28,
+      "baseline_mae": 1.82062643361678,
+      "eeg_mae": 1.5069524329484136
+    },
+    {
+      "trial": 97,
+      "run": 4,
+      "trial_in_run": 1,
+      "baseline_mae": 1.08049486638322,
+      "eeg_mae": 1.504547738218699
+    },
+    {
+      "trial": 98,
+      "run": 4,
+      "trial_in_run": 2,
+      "baseline_mae": 1.3354389323696156,
+      "eeg_mae": 1.325199601773052
+    },
+    {
+      "trial": 99,
+      "run": 4,
+      "trial_in_run": 3,
+      "baseline_mae": 1.5603553223922917,
+      "eeg_mae": 1.412197211348861
+    },
+    {
+      "trial": 100,
+      "run": 4,
+      "trial_in_run": 4,
+      "baseline_mae": 1.6132409214852639,
+      "eeg_mae": 1.5526353072882704
+    },
+    {
+      "trial": 101,
+      "run": 4,
+      "trial_in_run": 5,
+      "baseline_mae": 1.9383991480158727,
+      "eeg_mae": 1.6932233394750014
+    },
+    {
+      "trial": 102,
+      "run": 4,
+      "trial_in_run": 6,
+      "baseline_mae": 1.4428425158163272,
+      "eeg_mae": 1.6899209733004146
+    },
+    {
+      "trial": 103,
+      "run": 4,
+      "trial_in_run": 7,
+      "baseline_mae": 2.0133528705782298,
+      "eeg_mae": 1.8963027474249416
+    },
+    {
+      "trial": 104,
+      "run": 4,
+      "trial_in_run": 8,
+      "baseline_mae": 1.6723142187641726,
+      "eeg_mae": 1.16092876761836
+    },
+    {
+      "trial": 105,
+      "run": 4,
+      "trial_in_run": 9,
+      "baseline_mae": 1.5599948237528338,
+      "eeg_mae": 1.8311466447742208
+    },
+    {
+      "trial": 106,
+      "run": 4,
+      "trial_in_run": 10,
+      "baseline_mae": 1.9497982128684817,
+      "eeg_mae": 1.837320602152114
+    },
+    {
+      "trial": 107,
+      "run": 4,
+      "trial_in_run": 11,
+      "baseline_mae": 1.8627093230725629,
+      "eeg_mae": 1.8412584782768584
+    },
+    {
+      "trial": 108,
+      "run": 4,
+      "trial_in_run": 12,
+      "baseline_mae": 2.0311291929138315,
+      "eeg_mae": 1.4999272946545221
+    },
+    {
+      "trial": 109,
+      "run": 4,
+      "trial_in_run": 13,
+      "baseline_mae": 1.612410983049889,
+      "eeg_mae": 1.0829265715491656
+    },
+    {
+      "trial": 110,
+      "run": 4,
+      "trial_in_run": 14,
+      "baseline_mae": 1.0013535091269845,
+      "eeg_mae": 1.182206318498521
+    },
+    {
+      "trial": 111,
+      "run": 4,
+      "trial_in_run": 15,
+      "baseline_mae": 1.8323635627551036,
+      "eeg_mae": 1.244695276798593
+    },
+    {
+      "trial": 112,
+      "run": 4,
+      "trial_in_run": 16,
+      "baseline_mae": 1.9215098844104317,
+      "eeg_mae": 1.6079886665618808
+    },
+    {
+      "trial": 113,
+      "run": 4,
+      "trial_in_run": 17,
+      "baseline_mae": 8.101956222732426,
+      "eeg_mae": 8.787255563325552
+    },
+    {
+      "trial": 114,
+      "run": 4,
+      "trial_in_run": 18,
+      "baseline_mae": 1.576070470238095,
+      "eeg_mae": 2.002797986882425
+    },
+    {
+      "trial": 115,
+      "run": 4,
+      "trial_in_run": 19,
+      "baseline_mae": 1.894642831689343,
+      "eeg_mae": 2.240742125955862
+    },
+    {
+      "trial": 116,
+      "run": 4,
+      "trial_in_run": 20,
+      "baseline_mae": 1.9357041969954663,
+      "eeg_mae": 2.036671484196367
+    },
+    {
+      "trial": 117,
+      "run": 4,
+      "trial_in_run": 21,
+      "baseline_mae": 1.788903648922903,
+      "eeg_mae": 1.270390209702758
+    },
+    {
+      "trial": 118,
+      "run": 4,
+      "trial_in_run": 22,
+      "baseline_mae": 1.716679156292517,
+      "eeg_mae": 2.0247481514433074
+    },
+    {
+      "trial": 119,
+      "run": 4,
+      "trial_in_run": 23,
+      "baseline_mae": 2.1130306477891154,
+      "eeg_mae": 2.515200886835114
+    },
+    {
+      "trial": 120,
+      "run": 4,
+      "trial_in_run": 24,
+      "baseline_mae": 1.8182257949546472,
+      "eeg_mae": 2.8100909245854315
+    },
+    {
+      "trial": 121,
+      "run": 4,
+      "trial_in_run": 25,
+      "baseline_mae": 2.0528473688775506,
+      "eeg_mae": 2.0512966607398893
+    },
+    {
+      "trial": 122,
+      "run": 4,
+      "trial_in_run": 26,
+      "baseline_mae": 1.4042369030045363,
+      "eeg_mae": 1.830619202896946
+    },
+    {
+      "trial": 123,
+      "run": 4,
+      "trial_in_run": 27,
+      "baseline_mae": 1.4639132489229005,
+      "eeg_mae": 1.4958210067752207
+    },
+    {
+      "trial": 124,
+      "run": 4,
+      "trial_in_run": 28,
+      "baseline_mae": 1.3736569603741475,
+      "eeg_mae": 0.7055143301262936
+    },
+    {
+      "trial": 125,
+      "run": 4,
+      "trial_in_run": 29,
+      "baseline_mae": 1.40560120005669,
+      "eeg_mae": 1.5717805415813546
+    },
+    {
+      "trial": 126,
+      "run": 4,
+      "trial_in_run": 30,
+      "baseline_mae": 1.5756134197845821,
+      "eeg_mae": 1.27373219958042
+    },
+    {
+      "trial": 127,
+      "run": 4,
+      "trial_in_run": 31,
+      "baseline_mae": 1.7102116652494317,
+      "eeg_mae": 1.5246496969143264
+    },
+    {
+      "trial": 128,
+      "run": 4,
+      "trial_in_run": 32,
+      "baseline_mae": 2.0209436291950107,
+      "eeg_mae": 2.057327489929347
+    },
+    {
+      "trial": 129,
+      "run": 4,
+      "trial_in_run": 33,
+      "baseline_mae": 1.5373103236394563,
+      "eeg_mae": 1.4588049413105015
+    },
+    {
+      "trial": 130,
+      "run": 4,
+      "trial_in_run": 34,
+      "baseline_mae": 1.3196480752267563,
+      "eeg_mae": 0.8031273973079448
+    },
+    {
+      "trial": 131,
+      "run": 5,
+      "trial_in_run": 1,
+      "baseline_mae": 1.2069314840702956,
+      "eeg_mae": 1.6742719888809197
+    },
+    {
+      "trial": 132,
+      "run": 5,
+      "trial_in_run": 2,
+      "baseline_mae": 0.6044128237528342,
+      "eeg_mae": 0.5611198609673275
+    },
+    {
+      "trial": 133,
+      "run": 5,
+      "trial_in_run": 3,
+      "baseline_mae": 0.7017725483560083,
+      "eeg_mae": 0.9294786108928731
+    },
+    {
+      "trial": 134,
+      "run": 5,
+      "trial_in_run": 4,
+      "baseline_mae": 0.7674926228458046,
+      "eeg_mae": 1.1424750234229881
+    },
+    {
+      "trial": 135,
+      "run": 5,
+      "trial_in_run": 5,
+      "baseline_mae": 1.3225668616213166,
+      "eeg_mae": 2.8148676118421463
+    },
+    {
+      "trial": 136,
+      "run": 5,
+      "trial_in_run": 6,
+      "baseline_mae": 1.0547589285147387,
+      "eeg_mae": 1.0822042029722563
+    },
+    {
+      "trial": 137,
+      "run": 5,
+      "trial_in_run": 7,
+      "baseline_mae": 0.8305257897392271,
+      "eeg_mae": 1.164191820376368
+    },
+    {
+      "trial": 138,
+      "run": 5,
+      "trial_in_run": 8,
+      "baseline_mae": 1.0012053824829925,
+      "eeg_mae": 0.9095014964844216
+    },
+    {
+      "trial": 139,
+      "run": 5,
+      "trial_in_run": 9,
+      "baseline_mae": 1.1037907324829928,
+      "eeg_mae": 1.2260143971439852
+    },
+    {
+      "trial": 140,
+      "run": 5,
+      "trial_in_run": 10,
+      "baseline_mae": 0.6939192161564618,
+      "eeg_mae": 0.8716580630839085
+    },
+    {
+      "trial": 141,
+      "run": 5,
+      "trial_in_run": 11,
+      "baseline_mae": 1.168403656972789,
+      "eeg_mae": 1.3791976241928896
+    },
+    {
+      "trial": 142,
+      "run": 5,
+      "trial_in_run": 12,
+      "baseline_mae": 1.1748178804421778,
+      "eeg_mae": 0.6972918008654848
+    },
+    {
+      "trial": 143,
+      "run": 5,
+      "trial_in_run": 13,
+      "baseline_mae": 0.8676246192176862,
+      "eeg_mae": 1.0696860424828538
+    },
+    {
+      "trial": 144,
+      "run": 5,
+      "trial_in_run": 14,
+      "baseline_mae": 0.8337664865646276,
+      "eeg_mae": 0.6907040029266857
+    },
+    {
+      "trial": 145,
+      "run": 5,
+      "trial_in_run": 15,
+      "baseline_mae": 1.2259898602607697,
+      "eeg_mae": 0.9288689930507674
+    },
+    {
+      "trial": 146,
+      "run": 5,
+      "trial_in_run": 16,
+      "baseline_mae": 1.3989876503968253,
+      "eeg_mae": 1.625782545565046
+    },
+    {
+      "trial": 147,
+      "run": 5,
+      "trial_in_run": 17,
+      "baseline_mae": 1.35583295175737,
+      "eeg_mae": 1.1964962233585459
+    },
+    {
+      "trial": 148,
+      "run": 5,
+      "trial_in_run": 18,
+      "baseline_mae": 1.1740412574263055,
+      "eeg_mae": 0.9652140387726538
+    },
+    {
+      "trial": 149,
+      "run": 5,
+      "trial_in_run": 19,
+      "baseline_mae": 1.576475040986394,
+      "eeg_mae": 0.8998897355219645
+    },
+    {
+      "trial": 150,
+      "run": 5,
+      "trial_in_run": 20,
+      "baseline_mae": 1.433144023752832,
+      "eeg_mae": 0.7411590632403802
+    },
+    {
+      "trial": 151,
+      "run": 5,
+      "trial_in_run": 21,
+      "baseline_mae": 1.7955789715986403,
+      "eeg_mae": 1.8888294633986322
+    },
+    {
+      "trial": 152,
+      "run": 5,
+      "trial_in_run": 22,
+      "baseline_mae": 1.6640259520975063,
+      "eeg_mae": 1.0468616853584247
+    },
+    {
+      "trial": 153,
+      "run": 5,
+      "trial_in_run": 23,
+      "baseline_mae": 1.1315605369047614,
+      "eeg_mae": 1.2930489393875988
+    },
+    {
+      "trial": 154,
+      "run": 5,
+      "trial_in_run": 24,
+      "baseline_mae": 1.3426955455215415,
+      "eeg_mae": 1.3900629890073435
+    },
+    {
+      "trial": 155,
+      "run": 5,
+      "trial_in_run": 25,
+      "baseline_mae": 1.3497207548185943,
+      "eeg_mae": 1.804317262826147
+    },
+    {
+      "trial": 156,
+      "run": 5,
+      "trial_in_run": 26,
+      "baseline_mae": 1.4294424232993208,
+      "eeg_mae": 1.1223558216304208
+    },
+    {
+      "trial": 157,
+      "run": 5,
+      "trial_in_run": 27,
+      "baseline_mae": 1.022748846315193,
+      "eeg_mae": 1.4639715716566464
+    },
+    {
+      "trial": 158,
+      "run": 5,
+      "trial_in_run": 28,
+      "baseline_mae": 1.2013202462018155,
+      "eeg_mae": 1.6619495215569162
+    },
+    {
+      "trial": 159,
+      "run": 6,
+      "trial_in_run": 1,
+      "baseline_mae": 1.3245590404195007,
+      "eeg_mae": 1.165864387531441
+    },
+    {
+      "trial": 160,
+      "run": 6,
+      "trial_in_run": 2,
+      "baseline_mae": 2.4736971184240337,
+      "eeg_mae": 3.3478839251345027
+    },
+    {
+      "trial": 161,
+      "run": 6,
+      "trial_in_run": 3,
+      "baseline_mae": 1.55530234926304,
+      "eeg_mae": 2.1093441960569037
+    },
+    {
+      "trial": 162,
+      "run": 6,
+      "trial_in_run": 4,
+      "baseline_mae": 0.6074087273809526,
+      "eeg_mae": 1.2211464107293915
+    },
+    {
+      "trial": 163,
+      "run": 6,
+      "trial_in_run": 5,
+      "baseline_mae": 1.3393820736394568,
+      "eeg_mae": 1.035301558974494
+    },
+    {
+      "trial": 164,
+      "run": 6,
+      "trial_in_run": 6,
+      "baseline_mae": 1.1297460816893425,
+      "eeg_mae": 1.6400721311189954
+    },
+    {
+      "trial": 165,
+      "run": 6,
+      "trial_in_run": 7,
+      "baseline_mae": 0.8198469743197279,
+      "eeg_mae": 1.1366095955628384
+    },
+    {
+      "trial": 166,
+      "run": 6,
+      "trial_in_run": 8,
+      "baseline_mae": 0.6956816101473907,
+      "eeg_mae": 0.763572370003167
+    },
+    {
+      "trial": 167,
+      "run": 6,
+      "trial_in_run": 9,
+      "baseline_mae": 0.6658756655895699,
+      "eeg_mae": 1.6452246071140326
+    },
+    {
+      "trial": 168,
+      "run": 6,
+      "trial_in_run": 10,
+      "baseline_mae": 0.5995260988095246,
+      "eeg_mae": 0.9312293630545834
+    },
+    {
+      "trial": 169,
+      "run": 6,
+      "trial_in_run": 11,
+      "baseline_mae": 0.9378530308956912,
+      "eeg_mae": 1.212119224946008
+    },
+    {
+      "trial": 170,
+      "run": 6,
+      "trial_in_run": 12,
+      "baseline_mae": 1.2812877442743762,
+      "eeg_mae": 1.9333094343545878
+    },
+    {
+      "trial": 171,
+      "run": 6,
+      "trial_in_run": 13,
+      "baseline_mae": 1.2359911837301605,
+      "eeg_mae": 0.7040281983635263
+    },
+    {
+      "trial": 172,
+      "run": 6,
+      "trial_in_run": 14,
+      "baseline_mae": 0.9578549757936516,
+      "eeg_mae": 1.342578837500476
+    },
+    {
+      "trial": 173,
+      "run": 6,
+      "trial_in_run": 15,
+      "baseline_mae": 0.48176166218820754,
+      "eeg_mae": 0.8506449116449555
+    },
+    {
+      "trial": 174,
+      "run": 6,
+      "trial_in_run": 16,
+      "baseline_mae": 1.1213643718253974,
+      "eeg_mae": 2.8246198297791505
+    },
+    {
+      "trial": 175,
+      "run": 6,
+      "trial_in_run": 17,
+      "baseline_mae": 0.9721752611678016,
+      "eeg_mae": 1.1526941829509552
+    },
+    {
+      "trial": 176,
+      "run": 6,
+      "trial_in_run": 18,
+      "baseline_mae": 0.8109655806689331,
+      "eeg_mae": 1.6673117753798432
+    },
+    {
+      "trial": 177,
+      "run": 6,
+      "trial_in_run": 19,
+      "baseline_mae": 1.1589086547052152,
+      "eeg_mae": 1.6370697969279069
+    },
+    {
+      "trial": 178,
+      "run": 6,
+      "trial_in_run": 20,
+      "baseline_mae": 0.7926694979024943,
+      "eeg_mae": 0.9356394365612974
+    },
+    {
+      "trial": 179,
+      "run": 6,
+      "trial_in_run": 21,
+      "baseline_mae": 1.3760410025510212,
+      "eeg_mae": 2.5289194996956748
+    },
+    {
+      "trial": 180,
+      "run": 6,
+      "trial_in_run": 22,
+      "baseline_mae": 1.4239180556122468,
+      "eeg_mae": 1.5613669566862451
+    },
+    {
+      "trial": 181,
+      "run": 6,
+      "trial_in_run": 23,
+      "baseline_mae": 1.1751792971088435,
+      "eeg_mae": 2.648253166553867
+    },
+    {
+      "trial": 182,
+      "run": 6,
+      "trial_in_run": 24,
+      "baseline_mae": 0.5726855441609968,
+      "eeg_mae": 1.0436460463997599
+    },
+    {
+      "trial": 183,
+      "run": 6,
+      "trial_in_run": 25,
+      "baseline_mae": 0.7628047160430846,
+      "eeg_mae": 1.1825226324775093
+    },
+    {
+      "trial": 184,
+      "run": 6,
+      "trial_in_run": 26,
+      "baseline_mae": 0.9758711762471648,
+      "eeg_mae": 1.078023729419936
+    },
+    {
+      "trial": 185,
+      "run": 6,
+      "trial_in_run": 27,
+      "baseline_mae": 0.9638881900793631,
+      "eeg_mae": 1.049805749704701
+    },
+    {
+      "trial": 186,
+      "run": 6,
+      "trial_in_run": 28,
+      "baseline_mae": 1.278770089965988,
+      "eeg_mae": 2.070293488346411
+    },
+    {
+      "trial": 187,
+      "run": 6,
+      "trial_in_run": 29,
+      "baseline_mae": 1.2173690533446706,
+      "eeg_mae": 2.3238158010008156
+    },
+    {
+      "trial": 188,
+      "run": 6,
+      "trial_in_run": 30,
+      "baseline_mae": 1.0000240134353728,
+      "eeg_mae": 1.5167277889996025
+    },
+    {
+      "trial": 189,
+      "run": 6,
+      "trial_in_run": 31,
+      "baseline_mae": 1.4019818054988664,
+      "eeg_mae": 1.5692903196893844
+    },
+    {
+      "trial": 190,
+      "run": 6,
+      "trial_in_run": 32,
+      "baseline_mae": 0.965289384297052,
+      "eeg_mae": 1.197448653446271
+    },
+    {
+      "trial": 191,
+      "run": 6,
+      "trial_in_run": 33,
+      "baseline_mae": 0.6167117850907028,
+      "eeg_mae": 1.57786774692318
+    },
+    {
+      "trial": 192,
+      "run": 6,
+      "trial_in_run": 34,
+      "baseline_mae": 1.3522054629818594,
+      "eeg_mae": 2.3169682855928606
+    },
+    {
+      "trial": 193,
+      "run": 7,
+      "trial_in_run": 1,
+      "baseline_mae": 0.9284789006235836,
+      "eeg_mae": 2.667099257360473
+    },
+    {
+      "trial": 194,
+      "run": 7,
+      "trial_in_run": 2,
+      "baseline_mae": 0.77070112420635,
+      "eeg_mae": 2.8567515952614557
+    },
+    {
+      "trial": 195,
+      "run": 7,
+      "trial_in_run": 3,
+      "baseline_mae": 0.6403916085600911,
+      "eeg_mae": 1.7737282188307613
+    },
+    {
+      "trial": 196,
+      "run": 7,
+      "trial_in_run": 4,
+      "baseline_mae": 0.7856240403061229,
+      "eeg_mae": 1.5984709462933298
+    },
+    {
+      "trial": 197,
+      "run": 7,
+      "trial_in_run": 5,
+      "baseline_mae": 0.9430330717120202,
+      "eeg_mae": 0.9599367700302509
+    },
+    {
+      "trial": 198,
+      "run": 7,
+      "trial_in_run": 6,
+      "baseline_mae": 0.8546061489229039,
+      "eeg_mae": 1.4450586035470976
+    },
+    {
+      "trial": 199,
+      "run": 7,
+      "trial_in_run": 7,
+      "baseline_mae": 0.7520040268140574,
+      "eeg_mae": 1.249605325396583
+    },
+    {
+      "trial": 200,
+      "run": 7,
+      "trial_in_run": 8,
+      "baseline_mae": 0.8837787157029473,
+      "eeg_mae": 1.0919867494794666
+    },
+    {
+      "trial": 201,
+      "run": 7,
+      "trial_in_run": 9,
+      "baseline_mae": 0.48444319495464955,
+      "eeg_mae": 1.2924428738856295
+    },
+    {
+      "trial": 202,
+      "run": 7,
+      "trial_in_run": 10,
+      "baseline_mae": 1.1813673835034026,
+      "eeg_mae": 0.6942150066696989
+    },
+    {
+      "trial": 203,
+      "run": 7,
+      "trial_in_run": 11,
+      "baseline_mae": 0.7395344424603191,
+      "eeg_mae": 0.9236011608972943
+    },
+    {
+      "trial": 204,
+      "run": 7,
+      "trial_in_run": 12,
+      "baseline_mae": 0.8003161835034003,
+      "eeg_mae": 1.4437217139776697
+    },
+    {
+      "trial": 205,
+      "run": 7,
+      "trial_in_run": 13,
+      "baseline_mae": 0.5590767579931978,
+      "eeg_mae": 1.5782481758152704
+    },
+    {
+      "trial": 206,
+      "run": 7,
+      "trial_in_run": 14,
+      "baseline_mae": 1.0182351831632652,
+      "eeg_mae": 1.3867448508569808
+    },
+    {
+      "trial": 207,
+      "run": 7,
+      "trial_in_run": 15,
+      "baseline_mae": 1.1440442209183668,
+      "eeg_mae": 2.45985268304429
+    },
+    {
+      "trial": 208,
+      "run": 7,
+      "trial_in_run": 16,
+      "baseline_mae": 0.41615797171201835,
+      "eeg_mae": 1.473468225014597
+    },
+    {
+      "trial": 209,
+      "run": 7,
+      "trial_in_run": 17,
+      "baseline_mae": 0.9144408198979588,
+      "eeg_mae": 2.845254933284081
+    },
+    {
+      "trial": 210,
+      "run": 7,
+      "trial_in_run": 18,
+      "baseline_mae": 0.6887529003968248,
+      "eeg_mae": 1.120370841353077
+    },
+    {
+      "trial": 211,
+      "run": 7,
+      "trial_in_run": 19,
+      "baseline_mae": 0.6837716071995468,
+      "eeg_mae": 1.2940733516120184
+    },
+    {
+      "trial": 212,
+      "run": 7,
+      "trial_in_run": 20,
+      "baseline_mae": 0.581149275680272,
+      "eeg_mae": 0.6577890329391001
+    },
+    {
+      "trial": 213,
+      "run": 7,
+      "trial_in_run": 21,
+      "baseline_mae": 1.0520397091269842,
+      "eeg_mae": 2.1143437911946354
+    },
+    {
+      "trial": 214,
+      "run": 7,
+      "trial_in_run": 22,
+      "baseline_mae": 0.7634933865646238,
+      "eeg_mae": 0.9420917413374418
+    },
+    {
+      "trial": 215,
+      "run": 7,
+      "trial_in_run": 23,
+      "baseline_mae": 0.5723975211451234,
+      "eeg_mae": 1.1877184641328724
+    },
+    {
+      "trial": 216,
+      "run": 7,
+      "trial_in_run": 24,
+      "baseline_mae": 0.9828403853174595,
+      "eeg_mae": 1.6819802984854602
+    },
+    {
+      "trial": 217,
+      "run": 7,
+      "trial_in_run": 25,
+      "baseline_mae": 1.439843479875283,
+      "eeg_mae": 2.338557754653313
+    },
+    {
+      "trial": 218,
+      "run": 7,
+      "trial_in_run": 26,
+      "baseline_mae": 0.7042697650226756,
+      "eeg_mae": 1.3189890037130967
+    },
+    {
+      "trial": 219,
+      "run": 7,
+      "trial_in_run": 27,
+      "baseline_mae": 1.0518996430272096,
+      "eeg_mae": 1.551046853427397
+    },
+    {
+      "trial": 220,
+      "run": 7,
+      "trial_in_run": 28,
+      "baseline_mae": 0.9328266534580523,
+      "eeg_mae": 0.9803457223170935
+    },
+    {
+      "trial": 221,
+      "run": 7,
+      "trial_in_run": 29,
+      "baseline_mae": 1.2319602825963745,
+      "eeg_mae": 0.7828076653880204
+    },
+    {
+      "trial": 222,
+      "run": 7,
+      "trial_in_run": 30,
+      "baseline_mae": 1.2707749432539681,
+      "eeg_mae": 1.3351559374386688
+    },
+    {
+      "trial": 223,
+      "run": 7,
+      "trial_in_run": 31,
+      "baseline_mae": 1.4480105123015865,
+      "eeg_mae": 1.644196069023791
+    },
+    {
+      "trial": 224,
+      "run": 7,
+      "trial_in_run": 32,
+      "baseline_mae": 0.9850958493764177,
+      "eeg_mae": 1.759996672321459
+    },
+    {
+      "trial": 225,
+      "run": 7,
+      "trial_in_run": 33,
+      "baseline_mae": 0.9429944683106563,
+      "eeg_mae": 1.7158876025242844
+    },
+    {
+      "trial": 226,
+      "run": 7,
+      "trial_in_run": 34,
+      "baseline_mae": 0.8714957178571431,
+      "eeg_mae": 0.930800602647753
+    },
+    {
+      "trial": 227,
+      "run": 8,
+      "trial_in_run": 1,
+      "baseline_mae": 2.4935625008503406,
+      "eeg_mae": 2.8741806453638317
+    },
+    {
+      "trial": 228,
+      "run": 8,
+      "trial_in_run": 2,
+      "baseline_mae": 2.127713030782312,
+      "eeg_mae": 1.9547942227213588
+    },
+    {
+      "trial": 229,
+      "run": 8,
+      "trial_in_run": 3,
+      "baseline_mae": 0.8828938472222214,
+      "eeg_mae": 2.758792224331937
+    },
+    {
+      "trial": 230,
+      "run": 8,
+      "trial_in_run": 4,
+      "baseline_mae": 1.1483691308956911,
+      "eeg_mae": 1.5160700462528616
+    },
+    {
+      "trial": 231,
+      "run": 8,
+      "trial_in_run": 5,
+      "baseline_mae": 0.7637512836167794,
+      "eeg_mae": 1.9126667990653872
+    },
+    {
+      "trial": 232,
+      "run": 8,
+      "trial_in_run": 6,
+      "baseline_mae": 0.6599530553854872,
+      "eeg_mae": 0.7944807420735726
+    },
+    {
+      "trial": 233,
+      "run": 8,
+      "trial_in_run": 7,
+      "baseline_mae": 8.646192610487528,
+      "eeg_mae": 8.762384421492207
+    },
+    {
+      "trial": 234,
+      "run": 8,
+      "trial_in_run": 8,
+      "baseline_mae": 0.8999853132086179,
+      "eeg_mae": 1.32025941683871
+    },
+    {
+      "trial": 235,
+      "run": 8,
+      "trial_in_run": 9,
+      "baseline_mae": 0.6052429037981847,
+      "eeg_mae": 0.9708496924485412
+    },
+    {
+      "trial": 236,
+      "run": 8,
+      "trial_in_run": 10,
+      "baseline_mae": 1.122008657312926,
+      "eeg_mae": 2.3048841995472684
+    },
+    {
+      "trial": 237,
+      "run": 8,
+      "trial_in_run": 11,
+      "baseline_mae": 1.0121140383786846,
+      "eeg_mae": 1.4428834892063405
+    },
+    {
+      "trial": 238,
+      "run": 8,
+      "trial_in_run": 12,
+      "baseline_mae": 1.1514217298752845,
+      "eeg_mae": 1.627371883993876
+    },
+    {
+      "trial": 239,
+      "run": 8,
+      "trial_in_run": 13,
+      "baseline_mae": 1.0751006239795908,
+      "eeg_mae": 1.4839481430940877
+    },
+    {
+      "trial": 240,
+      "run": 8,
+      "trial_in_run": 14,
+      "baseline_mae": 0.7326804780612245,
+      "eeg_mae": 1.6931026890965684
+    },
+    {
+      "trial": 241,
+      "run": 8,
+      "trial_in_run": 15,
+      "baseline_mae": 1.1044398972222207,
+      "eeg_mae": 1.6517296885296882
+    },
+    {
+      "trial": 242,
+      "run": 8,
+      "trial_in_run": 16,
+      "baseline_mae": 0.9196887414399095,
+      "eeg_mae": 2.1193737540220883
+    },
+    {
+      "trial": 243,
+      "run": 8,
+      "trial_in_run": 17,
+      "baseline_mae": 0.8056367308956909,
+      "eeg_mae": 1.10893640599148
+    },
+    {
+      "trial": 244,
+      "run": 8,
+      "trial_in_run": 18,
+      "baseline_mae": 0.8163512917800444,
+      "eeg_mae": 1.5128224386183484
+    },
+    {
+      "trial": 245,
+      "run": 8,
+      "trial_in_run": 19,
+      "baseline_mae": 0.9218626841836728,
+      "eeg_mae": 1.2894568957365278
+    },
+    {
+      "trial": 246,
+      "run": 8,
+      "trial_in_run": 20,
+      "baseline_mae": 0.7733318964285701,
+      "eeg_mae": 0.9492786290643944
+    },
+    {
+      "trial": 247,
+      "run": 8,
+      "trial_in_run": 21,
+      "baseline_mae": 0.7030268988095247,
+      "eeg_mae": 0.7566600315153424
+    },
+    {
+      "trial": 248,
+      "run": 8,
+      "trial_in_run": 22,
+      "baseline_mae": 1.0528201685374154,
+      "eeg_mae": 1.9906663669014415
+    },
+    {
+      "trial": 249,
+      "run": 8,
+      "trial_in_run": 23,
+      "baseline_mae": 1.2683668255668932,
+      "eeg_mae": 1.8881115402626025
+    },
+    {
+      "trial": 250,
+      "run": 8,
+      "trial_in_run": 24,
+      "baseline_mae": 1.045177039399094,
+      "eeg_mae": 1.6517234129776355
+    },
+    {
+      "trial": 251,
+      "run": 8,
+      "trial_in_run": 25,
+      "baseline_mae": 0.7899299685374135,
+      "eeg_mae": 0.5206356813027745
+    },
+    {
+      "trial": 252,
+      "run": 8,
+      "trial_in_run": 26,
+      "baseline_mae": 1.6901755960884357,
+      "eeg_mae": 2.517354120252377
+    },
+    {
+      "trial": 253,
+      "run": 8,
+      "trial_in_run": 27,
+      "baseline_mae": 1.4339050997165534,
+      "eeg_mae": 1.4900889384653722
+    },
+    {
+      "trial": 254,
+      "run": 8,
+      "trial_in_run": 28,
+      "baseline_mae": 1.371140509013605,
+      "eeg_mae": 1.1712374779782566
+    },
+    {
+      "trial": 255,
+      "run": 8,
+      "trial_in_run": 29,
+      "baseline_mae": 0.9406805099206365,
+      "eeg_mae": 0.8427033696070853
+    },
+    {
+      "trial": 256,
+      "run": 8,
+      "trial_in_run": 30,
+      "baseline_mae": 1.5517064043650801,
+      "eeg_mae": 1.357982651139033
+    },
+    {
+      "trial": 257,
+      "run": 8,
+      "trial_in_run": 31,
+      "baseline_mae": 1.1903300316893421,
+      "eeg_mae": 0.9591300789981492
+    },
+    {
+      "trial": 258,
+      "run": 8,
+      "trial_in_run": 32,
+      "baseline_mae": 1.127068244954647,
+      "eeg_mae": 1.455770688994173
+    },
+    {
+      "trial": 259,
+      "run": 8,
+      "trial_in_run": 33,
+      "baseline_mae": 0.9462361282879813,
+      "eeg_mae": 1.2311516029922358
+    },
+    {
+      "trial": 260,
+      "run": 8,
+      "trial_in_run": 34,
+      "baseline_mae": 1.8876723208049904,
+      "eeg_mae": 2.4863823386622066
+    },
+    {
+      "trial": 261,
+      "run": 9,
+      "trial_in_run": 1,
+      "baseline_mae": 2.1836292265873016,
+      "eeg_mae": 3.1991275516631714
+    },
+    {
+      "trial": 262,
+      "run": 9,
+      "trial_in_run": 2,
+      "baseline_mae": 2.2392611320294797,
+      "eeg_mae": 2.6700548091432013
+    },
+    {
+      "trial": 263,
+      "run": 9,
+      "trial_in_run": 3,
+      "baseline_mae": 2.2065311692176874,
+      "eeg_mae": 3.2822059254622564
+    },
+    {
+      "trial": 264,
+      "run": 9,
+      "trial_in_run": 4,
+      "baseline_mae": 2.200800123866214,
+      "eeg_mae": 3.7013370397549017
+    },
+    {
+      "trial": 265,
+      "run": 9,
+      "trial_in_run": 5,
+      "baseline_mae": 1.1952230941609996,
+      "eeg_mae": 1.4932495871209686
+    },
+    {
+      "trial": 266,
+      "run": 9,
+      "trial_in_run": 6,
+      "baseline_mae": 1.4823438356575964,
+      "eeg_mae": 1.8209344084623469
+    },
+    {
+      "trial": 267,
+      "run": 9,
+      "trial_in_run": 7,
+      "baseline_mae": 1.3980021694444453,
+      "eeg_mae": 1.5326973126703112
+    },
+    {
+      "trial": 268,
+      "run": 9,
+      "trial_in_run": 8,
+      "baseline_mae": 1.5338071002834464,
+      "eeg_mae": 2.028888294630498
+    },
+    {
+      "trial": 269,
+      "run": 9,
+      "trial_in_run": 9,
+      "baseline_mae": 2.1615220542517006,
+      "eeg_mae": 2.2556169973799665
+    },
+    {
+      "trial": 270,
+      "run": 9,
+      "trial_in_run": 10,
+      "baseline_mae": 1.562504044274379,
+      "eeg_mae": 3.0977346020678755
+    },
+    {
+      "trial": 271,
+      "run": 9,
+      "trial_in_run": 11,
+      "baseline_mae": 1.153914598129253,
+      "eeg_mae": 1.5475694440542938
+    },
+    {
+      "trial": 272,
+      "run": 9,
+      "trial_in_run": 12,
+      "baseline_mae": 1.0842949274943294,
+      "eeg_mae": 1.643082041687973
+    },
+    {
+      "trial": 273,
+      "run": 9,
+      "trial_in_run": 13,
+      "baseline_mae": 1.062129863208619,
+      "eeg_mae": 1.6511298223599034
+    },
+    {
+      "trial": 274,
+      "run": 9,
+      "trial_in_run": 14,
+      "baseline_mae": 1.677920710941043,
+      "eeg_mae": 3.660233698917197
+    },
+    {
+      "trial": 275,
+      "run": 9,
+      "trial_in_run": 15,
+      "baseline_mae": 0.49256749914965864,
+      "eeg_mae": 1.8408262158203688
+    },
+    {
+      "trial": 276,
+      "run": 9,
+      "trial_in_run": 16,
+      "baseline_mae": 0.34877462964852546,
+      "eeg_mae": 0.366924330804999
+    },
+    {
+      "trial": 277,
+      "run": 9,
+      "trial_in_run": 17,
+      "baseline_mae": 0.8792872227324259,
+      "eeg_mae": 1.6376676913150878
+    },
+    {
+      "trial": 278,
+      "run": 9,
+      "trial_in_run": 18,
+      "baseline_mae": 2.192543745068025,
+      "eeg_mae": 2.757500988594161
+    },
+    {
+      "trial": 279,
+      "run": 9,
+      "trial_in_run": 19,
+      "baseline_mae": 1.5431767865646253,
+      "eeg_mae": 2.8253731030877014
+    },
+    {
+      "trial": 280,
+      "run": 9,
+      "trial_in_run": 20,
+      "baseline_mae": 1.399790435884355,
+      "eeg_mae": 2.566496200257853
+    },
+    {
+      "trial": 281,
+      "run": 9,
+      "trial_in_run": 21,
+      "baseline_mae": 1.0437634310090707,
+      "eeg_mae": 1.3799216715674687
+    },
+    {
+      "trial": 282,
+      "run": 9,
+      "trial_in_run": 22,
+      "baseline_mae": 1.504388357426305,
+      "eeg_mae": 2.283583719743356
+    },
+    {
+      "trial": 283,
+      "run": 9,
+      "trial_in_run": 23,
+      "baseline_mae": 0.9262046547052138,
+      "eeg_mae": 1.4018092437152614
+    },
+    {
+      "trial": 284,
+      "run": 9,
+      "trial_in_run": 24,
+      "baseline_mae": 1.0650185626417241,
+      "eeg_mae": 1.6899443543588786
+    },
+    {
+      "trial": 285,
+      "run": 9,
+      "trial_in_run": 25,
+      "baseline_mae": 1.5136561466553289,
+      "eeg_mae": 2.0280172272375445
+    },
+    {
+      "trial": 286,
+      "run": 9,
+      "trial_in_run": 26,
+      "baseline_mae": 1.8738339838435385,
+      "eeg_mae": 3.014517731915026
+    },
+    {
+      "trial": 287,
+      "run": 9,
+      "trial_in_run": 27,
+      "baseline_mae": 1.6912699162698428,
+      "eeg_mae": 2.5217790310817305
+    },
+    {
+      "trial": 288,
+      "run": 9,
+      "trial_in_run": 28,
+      "baseline_mae": 1.766866693707482,
+      "eeg_mae": 3.158823997602763
+    },
+    {
+      "trial": 289,
+      "run": 9,
+      "trial_in_run": 29,
+      "baseline_mae": 0.9826506520975057,
+      "eeg_mae": 2.2590803268460378
+    },
+    {
+      "trial": 290,
+      "run": 9,
+      "trial_in_run": 30,
+      "baseline_mae": 1.159348236791383,
+      "eeg_mae": 2.1182258446928586
+    },
+    {
+      "trial": 291,
+      "run": 9,
+      "trial_in_run": 31,
+      "baseline_mae": 0.5474713238662132,
+      "eeg_mae": 1.1070809362618501
+    },
+    {
+      "trial": 292,
+      "run": 9,
+      "trial_in_run": 32,
+      "baseline_mae": 8.412669628628118,
+      "eeg_mae": 9.103701126081495
+    },
+    {
+      "trial": 293,
+      "run": 9,
+      "trial_in_run": 33,
+      "baseline_mae": 0.813563462188209,
+      "eeg_mae": 2.466584944132339
+    },
+    {
+      "trial": 294,
+      "run": 9,
+      "trial_in_run": 34,
+      "baseline_mae": 1.7568688177437646,
+      "eeg_mae": 2.2904735285794255
+    }
+  ],
+  "scope": "one new subject, fixed prior configuration; not five-subject LOSO or full paper reproduction"
+}
